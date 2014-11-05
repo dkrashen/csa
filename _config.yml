@@ -1,0 +1,22 @@
+testing: true
+
+# Site settings
+page_title: "Central Simple Algebras"
+course_title: "UGA MATH 8330, Spring 2014." 
+description: "An introduction to the theory of finite dimensional division
+algebras, the Brauer group, involutions and other fun things."
+instructor: "Daniel Krashen"
+email: "dkrashen@uga.edu"
+office_hours: "TBA, Boyd 437"
+lecture_schedule: "2:30pm - 5:30pm, Fridays, Boyd 328"
+
+syllabus_url: ""
+
+baseurl: ""
+
+# url: "localhost:4000"
+# url: "http://math.dkrashen.org"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
