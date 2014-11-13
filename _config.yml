@@ -12,7 +12,7 @@ lecture_schedule: "2:30pm - 5:30pm, Fridays, Boyd 328"
 
 syllabus_url: "csa_syllabus/"
 
-baseurl: ""
+baseurl: "/csa"
 
 # url: "localhost:4000"
 # url: "http://math.dkrashen.org"
