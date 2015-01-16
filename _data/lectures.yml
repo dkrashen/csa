@@ -1,3 +1,6 @@
 - title: "Lecture 1"
   filename: "lecture1.pdf"
   description: "Wedderburn-Artin Theory"
+- title: "Lecture 2"
+  filename: "lecture2.pdf"
+  description: "Tensors and Centralizers"
