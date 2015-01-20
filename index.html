@@ -2,8 +2,27 @@
 layout: default
 ---
 
-<div class="row well">
-<div class="col-md-6">
+<div class="row well"> <!-- 0 -->
+
+<div class="col-md-6 well"> <!-- 1 -->
+  <h3> What's New </h3>
+  <ul class="posts list-unstyled">
+    {% for post in site.posts limit:1 %}
+      <li>
+        <span class="post-date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <a class="post-link" 
+          href="{{ post.url | prepend: site.baseurl }}"
+          >{{ post.title }}</a>
+        <p> {{ post.content }} </p>
+      </li>
+    {% endfor %}
+  </ul>
+</div> <!--/1-->
+
+<div class="col-md-1"></div>
+
+<div class="col-md-5"> <!--1-->
+<div class="row well"> <!--2-->
 	<dl>
     <dt> Instructor </dt>
       <dd> {{ site.instructor }} </dd>
@@ -20,10 +39,10 @@ layout: default
   <button class="btn btn-success" type="button">Course Syllabus</button>
   </a>
   </p>
-</div>
-
-<div class="col-md-6">
-  <h3> Course News </h3>
+</div><!--/2-->
+  
+<div class="row well"><!--2-->
+  <h3> Older News </h3>
   <ul class="posts list-unstyled">
     {% for post in site.posts %}
       <li>
@@ -39,7 +58,9 @@ layout: default
     subscribe 
     <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
   </p>
-</div>
-</div>
+</div><!--/2 inner row well-->
+</div><!--/1 right column with width 4-->
+
+</div><!--/0 top level row with outer well-->
 
 
