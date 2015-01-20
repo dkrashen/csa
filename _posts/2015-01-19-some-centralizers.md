@@ -13,7 +13,7 @@ I've been cleaning up the stuff on centralizers, which you can now see in chapte
 
 To get to the pdf file itself:
 
-from the commit link above, click on the file: 
+from the [commit link][new version] above, click on the file: 
 	
 	csa.pda
 	
