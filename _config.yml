@@ -1,6 +1,7 @@
 testing: true
 
 # Site settings
+title: "Central Simple Algebras (UGA MATH 8330, Spring 2014)"
 page_title: "Central Simple Algebras"
 course_title: "UGA MATH 8330, Spring 2014." 
 description: "An introduction to the theory of finite dimensional division
@@ -13,6 +14,7 @@ lecture_schedule: "2:30pm - 5:30pm, Fridays, Boyd 328"
 syllabus_url: "csa_syllabus/"
 
 baseurl: "/csa"
+url: "http://dkrashen.github.io"
 
 # url: "localhost:4000"
 # url: "http://math.dkrashen.org"
