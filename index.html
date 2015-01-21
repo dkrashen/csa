@@ -55,8 +55,11 @@ layout: default
   </ul>
 
   <p class="rss-subscribe">
-    subscribe 
-    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>
+    subscribe to the class newsfeed
+    <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a>, <br />
+    or use the <a href="http://ifttt.com">ifttt</a> recipe below to have
+    the latest news automatically sent to you by email.
+    {% include feedlink.html %}
   </p>
 </div><!--/2 inner row well-->
 </div><!--/1 right column with width 4-->
