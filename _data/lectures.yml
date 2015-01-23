@@ -4,3 +4,6 @@
 - title: "Lecture 2"
   filename: "lecture2.pdf"
   description: "Tensors and Centralizers"
+- title: "Lecture 3"
+  filename: "lecture3.pdf"
+  description: "Noether-Skolem and examples"
