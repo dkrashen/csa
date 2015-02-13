@@ -12,4 +12,7 @@
   description: "Crossed Products"
 - title: "Lecture 5"
   filename: "lecture5.pdf"
-  description: "second and first cohomology groups"
+  description: "Second and first cohomology groups"
+- title: "Lecture 6"
+  filename: "lecture6.pdf"
+  description: "Cohomology and the connecting map"
