@@ -2,7 +2,7 @@
 
 layout: post
 title:  "Lecture Notes, Cohomology and Other Things"
-date:   2015-01-19
+date:   2015-02-13
 categories: announcements 
 
 ---
@@ -13,7 +13,6 @@ Today, we'll be moving forward with Galois cohomology in some more detail, descr
 
 Much of the material I have been using to date comes from Pierce's [Associative algebras][pierce] book. Today I'll also be drawing from Serre's [Galois Cohomology][gc], as well as the [Book of Involutions][book].
 
----
 
 [pierce]: http://www.amazon.com/Associative-Algebras-Graduate-Texts-Mathematics/dp/1475701659/
 [gc]: http://www.amazon.com/Galois-Cohomology-Jean-Pierre-Serre/dp/3540421920/
