@@ -1,0 +1,10 @@
+
+all: css/danny.css livetex_stuff
+
+css/danny.css: css/danny.scss
+	sass css/danny.scss > css/danny.css
+
+livetex_stuff:
+	cd _livetex && $(MAKE)
+
+

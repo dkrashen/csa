@@ -1,0 +1,199 @@
+\section{Lecture (2/13)}
+Let $E/F$ be $G$ Galois and some vector space $V/F$. We can tensor up to $V \otimes E$ with a $G$ action on the second component. We note that $V \iso (V\otimes E)^G$ by hitting the tensor with $G$ and seeing what doesn't move. Recall Theorem \ref{5.10}.
+Suppose that $V  = F^n$, then $V \otimes E = E^n$ and we can write $\End_E(V\otimes E) = E^{n^2}$. By thinking about the action of $G$ coordinate wise on $\End_E(V\otimes E)$, we can deduce that some $\sigma \in G$ acts on $f \in \End_E(V\otimes E)$ by $\sigma (f) = \sigma \circ f \circ \sigma\inv$. For example, if $f = xe_{ij}$ such that $$\sigma(f)(e_k) = \sigma (f(e_k)) = \sigma (xe_{ij}e_k) = \sigma(x\delta_{jk}e_i) = \sigma (x)\delta_{jk}e_i .$$ 
+
+
+Give a ``model" algebra $A_0/F$, we can ask to classify all of the $A/F$ such that $A\otimes E \iso A_0 \otimes E$, in particular, we are looking for $\CSA/F$ that split over $E$ of degree $n$. If $\phi : A\otimes E \lrra A_0 \otimes E$, then we can transport the action of $G$ on the left to the right i.e., we want to analyze the Galois action on $E$. Hence 
+
+\begin{equation}\label{6.0.1}
+\sigma \cdot x = \phi \sigma \phi\inv (x).
+\end{equation}
+
+If we set $b(\sigma) = \phi \sigma \phi\inv \sigma \inv \in \Aut_E(A_0 \otimes E)$, then we can rewrite \eqref{6.0.1} as
+\begin{equation}\label{6.0.2}
+\sigma \cdot x = b(\sigma) \circ \sigma (x).
+\end{equation}
+
+If we set $b (\sigma \tau) = b(\sigma)\sigma (b(\tau))$, then we can say that $\sigma \circ ( \tau \circ x) = \sigma\tau \circ x$. We can also modify $\phi$ by hitting $A_0\times E$ by an automorphism $a$. Set $\phi ' = a\inv \phi$. The new action will be 
+\begin{eqnarray*}
+\phi ' \sigma \phi^{'-1}\sigma^{'-1} &=& a\inv \phi \sigma (a\inv \phi)\inv \sigma \inv  \\
+& = & a\inv \phi\sigma \phi\inv a \sigma \inv \\
+& = & a\inv \phi \sigma \phi\inv \sigma \inv \sigma a \sigma \inv \\
+& = & a\inv b(\sigma)\sigma(a),
+\end{eqnarray*}
+hence we say that $$b \eqr b' \lifaf b'(\sigma) = a\inv b(\sigma)\sigma (a) \fs a \in \Aut_E(A_0 \otimes E).$$
+
+\begin{defn}\label{6.1}
+Suppose that $X$ is a group with action of $G$.Then we define 
+$$Z^1(G,X) = \brk{b: G \lrra X \,|\, b(\sigma\tau) = b(\sigma) \sigma(b(\tau))}$$ and 
+$b\eqr b'$ if there exist some $x \in X$ such that $b'(\sigma) = x\inv b(\sigma)\sigma(x)$ for all $\sigma \in G$. We define $\cH^1(G,X)$ to be the set of equivalence classes of the above form. 
+
+In particular, we know that 
+\begin{eqnarray*}
+\CSA/F \text{ of degree $n$ with splitting field } E/F & \longleftrightarrow & \cH^1(G,\Aut_E(M_n(E))) 
+\end{eqnarray*}
+Note that $\GL_n(E) \surj \Aut_E(M_n(E))$ with conjugation by $T$ and the kernel of this map are the central matrices which are the scalars i.e., $E\unit$.
+\end{defn}
+\begin{defn}\label{6.2}
+We define $\PGL_n(E) = \GL_n(E)/ E\unit$. From Definition \ref{6.1}, we have that 
+$$\cH^1(G,\Aut_E(M_n(E))) \iso \cH^1(G,\PGL_n(E)).$$
+\end{defn}
+Recall that $(E,G,c) = \bigoplus_{\sigma \in G} E u_{\sigma}$ where $u_{\tau} = c(\sigma,\tau)u_{\sigma\tau}.$ For this course, we say that given $\ns{\sigma},\ns{\tau},\ns{\gamma}$, we have that
+$$c(\sigma , \tau)c(\sigma\tau , \gamma) = c(\sigma ,\tau \gamma)\sigma(c(\tau ,\gamma))$$
+i.e., the two co-cycle condition. If we altered $\ns{\sigma}$ to $v_{\sigma} = b(\sigma)\ns{\sigma}$. This alteration does give an equivalence between the co-cycles by setting 
+\begin{equation}\label{6.2.1}
+c'(\sigma , \tau) = b(\sigma)\sigma (b(\tau))b(\sigma \tau)\inv c(\sigma \tau),
+\end{equation} 
+which leads us to the notion of cohomologus. We say that $c\eqr c $ if and only if $ \exists \, b $ that satisfies \eqref{6.2.1}. The equivalence classes for a group $\cH^2(G,E\unit) = \Br (E/F)$.
+\subsection{Thinking about $\cH^2$ Abstractly}
+Abstractly, we can think of $\cH^2$ by letting $X$ be an Abelian group with $G$ action. We set 
+$$Z^2(G,X) = \brk{c : G \times G \lrra X \, | \, c(\sigma , \tau)c(\sigma\tau , \gamma) = c(\sigma ,\tau \gamma)\sigma(c(\tau ,\gamma))}$$
+We set $C^1(G,X)$ as the arrows from $G$ to $ X$. For a $b \in C^1(G,X)$, we say that the \textbf{boundary} is 
+$$\partial b (\sigma ,\tau) = b(\sigma )\sigma(b(\tau))$$
+Then we have 
+$$\cH^2(G,X) = \frac{Z^2(G,X)}{B^2(G,X)}.$$
+If $X$ is a set with $G$ action, then 
+$$\cH^0(G,X) = Z^0(G,X) = \brk{x \in X : \sigma (x) = x} = X^G.$$
+
+\subsection{The Long Exact Sequences}
+\begin{theorem}\label{6.5}
+Given a SES $$1 \lrra A \lrra B \lrra C \lrra 1$$ of groups with $G$ action. Taking cohomology gives a long exact sequence
+$$
+\begin{tikzcd}
+1 \arrow{r} & \cH^0(G,A) \arrow{r} & \cH^0(G,B) \arrow{r} & \cH^0(G,C) \arrow[in=80, out=-100]{lld}{\delta_0} \\ 
+{} & \cH^1(G,A) \arrow{r} & \cH^1(G,B) \arrow{r} & \cH^1(G,C) \arrow[in=80, out=-100]{lld}{\delta_1} \\
+{} & \cH^2(G,A) \arrow{r} & \cH^2(G,B) \arrow{r} & \cH^2(G,C) 
+\end{tikzcd}
+$$
+and we stop at a certain point if $A \subset Z(B)$ or unless $B$ is Abelian.
+\end{theorem}
+\begin{remark}\label{6.6}
+If $X,Y,Z$ are pointed sets, we say that $X \overset{f}{\lrra } Y \overset{g}{\lrra }Z$ if and only if $\ker g = \im f$ as pointed sets.
+\end{remark}
+
+
+What are the transgression maps when the groups are not Abelian? 
+For $\delta_0$, we can take this for granted. We want to look at $\delta_1$. Assume that $A \subset Z(B)$ choose a $c \in Z^1(G,C)$. Pick some $b \in C^1(G,C)$, then $b(\sigma) \in B$ which happens to map to $c(\sigma) \in A$. We look that 
+$$\partial b(\sigma \tau)  = b(\sigma)\sigma(b(\tau))b(\sigma\tau)\inv \in C^2(G,B),$$
+hence $\partial b(\sigma , \tau)= a(\sigma ,\tau) \in C^2(G,A)$. We want to show that 
+$$a(\sigma , \tau)a(\sigma \tau, \gamma) = a(\sigma , \tau \gamma)\sigma (a(\tau , \gamma)).$$
+Writing everything out with
+$a(\sigma , \tau) = b(\sigma)\sigma (b(\tau))b(\sigma \tau)\inv$, we have prove this equality.
+
+We want to specialize to the sequence
+$$1 \lrra E\unit \lrra \GL(V\otimes E) \lrra \PGL (V \otimes E) \lrra 1.$$
+Taking cohomology, we have 
+$$\cH^1(G,\PGL(V\otimes E)) \lrra \cH^2(G,E\unit) = \Br (E/F).$$
+Let's fix $n = [E:F] = \dim V$. We claim that under these assumptions, the above map is surjective. Pick $c \in Z^2(G,E\unit)$. Let $e_{\sigma}$ be a basis for $V$ induced by $G$. We define $b \in C^1(G,\GL (V\otimes E))$ via $b(\sigma)(e_{\tau}) = c(\sigma , \tau)e_{\sigma \tau}$. Note that 
+\begin{eqnarray*}
+b(\sigma)\sigma (b(\tau))(e_{\gamma}) &=& b(\sigma)(\sigma b(\tau)\sigma \inv (e_{\gamma}) \\
+& = & b(\sigma)(\sigma (b(\tau)e_{\gamma})) \\
+& = & b(\sigma ) \sigma (c(\sigma , \gamma)e_{\gamma}) \\
+& = & b(\sigma ) \sigma (c(\tau , \gamma))e_{\gamma \tau} \\
+& = & \sigma (c(\tau , \gamma))c(\sigma ,\tau \gamma)e_{\sigma \tau	 \gamma} \\
+& = & c(\sigma ,\tau)c(\sigma \tau, \gamma)e_{\sigma \tau \gamma} \\
+& = & c(\sigma ,\tau)b(\sigma , \tau)e_{\gamma} \\
+\Rightarrow b(\sigma ) \sigma (b(\tau)) & = & c(\sigma , \tau)b(\sigma , \tau) \\
+\Rightarrow b(\sigma) \sigma (b(\tau))b(\sigma \tau)\inv & \eqr & c(\sigma ,\tau)
+\end{eqnarray*}
+This implies that modulo $E\unit$, we have that 
+$$\overline{b(\sigma)} \, \overline{\sigma (b(\tau))} = \overline{b(\sigma \tau)},$$
+hence $\partial b = c$ is a lift if $\bar{b} \in Z^1(G,\PGL).$ What we have said is that if we tweak the standard Galois action on $\End_E(V\otimes E)$ by the $\bar{b} \in Z^1(G,\PGL)$, then the image of $\bar{b}$ under $\delta_1$ is$c$ from $(E,G,c)$ via $\delta_1$. We want to determine the algebra from $\bar{b}$. We want to take the invariants of the tweaked Galois action in order to recover this algebra, where we define the new action for $f \in \End_E(V\otimes E)$ as
+$$\sigma (f) = \bar{b}(\sigma)\circ \sigma (f) = b(\sigma) \circ \sigma (f) \circ b(\sigma)\inv$$
+where $b$ is a representative of $\bar{b}$. We want to find elements $f$ that are invariant under the tweaked action. Hence we can think of $f \mapsto \bar{b}\sigma (f) = b(\sigma)\circ \sigma (f) \circ b(\sigma)\inv$. The invariants are a CSA and we want to compare it with $(E,G,c)$. We set
+$$\End_E(V\otimes E)^{G,\bar{b}} = \brk{f : b(\sigma)\sigma(f) = fb(\sigma) \quad \forall \sigma \in G}.$$
+If $\sigma \in G$, define $y_{\sigma} \in \End_E(V\otimes E)$ via $y_{\sigma}(e_{\tau}) = c(\tau , \sigma)e_{\tau \sigma}$. If $x \in E$, we define $v_x \in \End_E(V\otimes E)$ via $v_x(e_{\tau}) = \tau(x)e_{\tau}$. We note that these are fixed. Indeed, let's look at 
+$b(\sigma)\sigma (v_x) = v_x b(\sigma)$. Since we have defined these notions on a basis, it suffices to consider
+\begin{eqnarray*}
+v_xb(\sigma)(e_{\tau}) & = & v_x(c(\sigma , \tau)e_{\sigma\tau}) \\ & =  & c(\sigma,\tau)v_x(e_{\sigma\tau}) \\ & = & c(\sigma , \tau)\sigma \tau (x) e_{\sigma \tau} \\ \Rightarrow b(\sigma)\sigma (v_x)(e_{\tau}) & = & b(\sigma)(\sigma (v_x(\sigma\inv e_{\tau}))) \\
+& = & b(\sigma)(\sigma (v_x e_{\tau})) \\& = & b(\sigma)(\sigma (\tau (x)e_{\tau})) \\ & = & b(\sigma)(\sigma \tau (x)e_{\tau}) \\& = & \sigma \tau (x)b(\sigma)e_{\tau} \\ & = & \sigma \tau (x) c(\sigma ,\tau)e_{\sigma \tau} \\ \therefore v_xb(\sigma)(e_{\tau}) & = & b(\sigma)\sigma (v_x)(e_{\tau}) .  
+\end{eqnarray*}
+Similary, we can show that $y_{\sigma}$, namely, $y_{\tau}b(\sigma) = b(\sigma)\sigma(y\tau)$. We can check this
+\begin{eqnarray*}
+y_{\tau}b(\sigma)(e_{\gamma}) & = & y_{\tau}(c(\sigma , \gamma)e_{\sigma \gamma}) \\
+& = & c(\sigma , \gamma)c(\sigma \gamma , \tau)e_{\sigma\gamma\tau} \\
+\Rightarrow b(\sigma)\sigma (y_{\tau})(e_{\gamma}) & = & b(\sigma)(\sigma y_{\tau}\sigma \inv (e_{\gamma})) \\
+& = & b(\sigma) (\sigma y_{\tau}(e_{\gamma})) \\ & = & b(\sigma) (\sigma (c(\gamma , \tau)e_{\gamma\tau})) \\
+& = & b(\sigma )(\sigma (c(\gamma , \tau))e_{\gamma \tau}) \\
+& = & \sigma (c(\gamma , \tau))b(\sigma)e_{\gamma \tau} \\ & = & \sigma (c(\gamma , \tau))c(\sigma , \gamma\tau)e_{\sigma \gamma \tau} \\
+\therefore y_{\tau}b(\sigma)(e_{\gamma}) & = & b(\sigma)\sigma (y_{\tau})(e_{\gamma})
+\end{eqnarray*}
+This allows us to define 
+\begin{eqnarray*}
+(E,G,c) & \lrra & (\End (V\otimes E))^{G,b} \\
+xu_{\sigma} & \longmapsto & v_{x}\circ y_{\sigma}
+\end{eqnarray*}
+Thus, 
+\begin{eqnarray*}
+\cH^1(G,\PGL_n) &\lrra & \cH^2(G,E\unit) \iso \Br (E/F) \\
+A & \leadsto & [A^{\op}]
+\end{eqnarray*}
+\subsection{Operations}
+What we want to do is: given two algebras given by a co-cycle of $\PGL$, how do we add them? We will use that fact that 
+$$\End(V) \otimes \End(W) \iso \End(V\otimes W),$$
+which makes more sense when we think about matrices. Given $a \in \GL(V) \aad b \in \GL(V)$, then we define $a\otimes b \in \GL(V\otimes W)$ by $a\otimes b(v\otimes w) = a(v) \otimes b(w).$ This induces a homomorphism from 
+$\GL(V) \times \GL(W) \lrra \GL(V\otimes W)$ of groups. If $\bar{a} \in \PGL (V), \bar{b} \in \PGL (W)$, then we can similarly define 
+$\bar{a} \otimes \bar{b} = \overline{a\otimes b} \in \PGL (V\otimes W)$, however, this is not a homomorphism since we are moding out by two different scalars so our map is not well-defined. If we think about
+$$
+\begin{tikzcd}
+\GL (V) \arrow[right hook->]{r}{\Delta} & \overbrace{\GL(V) \times \cdots \times \GL(V)}^{k \text{ times}} \arrow{r} & \GL(V^{\otimes k})
+\end{tikzcd}
+$$
+then we do get an induced homomorphism, namely
+\begin{eqnarray*}
+\PGL (V) & \lrra  & \PGL (V^{\otimes k}) \\
+\bar{a} & \longmapsto & \overline{a\otimes a \otimes \cdots \otimes a} \\
+\left[ A \right] & \longmapsto & k [A]
+\end{eqnarray*}
+
+Given $\bar{a} \in Z^1(G,\PGL (V \otimes E)), \bar{b}\in Z^1(G,\PGL (W\otimes E))$, we can define
+$\bar{a}\otimes \bar{b} \in Z^1(G,\PGL (V\otimes W \otimes E))$ by $\bar{a}\otimes \bar{b}(\sigma	) = \bar{a}(\sigma) \otimes \bar{b}(\sigma)$. We remark that $\bar{a}\otimes \bar{b}$ is a co-cycle and describes the action of the Galois group $G$ on $A \otimes B$, where $A$ corresponds to $a$ and similarly for $b$. So 
+\begin{eqnarray*}
+\left[ A \right] & \leftrightarrow &a \in \cH^1(G,\PGL(V)) \\
+\left[B \right]& \leftrightarrow & b \in \cH^1(G,\PGL(W)) \\
+a\otimes b &\leftrightarrow & [A\otimes B] \in \cH^1(G,\PGL(V \otimes W))
+\end{eqnarray*}
+
+\subsection{Torsion in the Brauer Group}
+Suppose we have $b \in Z^1(G. \PGL(V \otimes E))$ and $V = W_1 \oplus W_2$ such that 
+$$
+b(\sigma	) = \begin{pmatrix}
+b_1(\sigma) & 0 \\ 0 & b_2(\sigma)
+\end{pmatrix}
+$$
+is given in some block form with $b_i(\sigma) \in \GL(W_i \otimes E)$. Then 
+$$\partial b(\sigma , \tau) = 
+\begin{pmatrix}
+\partial b_1(\sigma , \tau) & 0 \\ 0 & \partial b_2(\sigma , \tau)
+\end{pmatrix}$$
+in particular, since $\partial b(\sigma , \tau)$ is a scalar matrix, which means that for some $\lambda \in E\unit$, $\lambda = \partial b_i$ i.e., $\partial b_i = \partial b.$ Then $\bar{b_i} \in \cH^1(G,\PGL (W_i))$ represents something Brauer equivalent to $b$. Recall that the wedge power of the vector space $V$, 
+$$\bigwedge^k V \subset \bigotimes^k V \supset \text{ Rest }^kV .$$ 
+Considering 
+$$
+\begin{tikzcd}
+\PGL (V) \arrow{r} & \PGL\pwr{\bigotimes^k V} = \PGL\pwr{\bigwedge^k V \oplus \text{Rest }^k V} & {}\\
+{} & 
+\begin{pmatrix}
+* & * \\ 0 & * 
+\end{pmatrix} \arrow[bend left]{r}{\partial} & 
+\begin{pmatrix}
+\lambda & {} & {} \\
+{} & \ddots & {} \\
+{} & {} & \lambda
+\end{pmatrix} \arrow[bend left]{l}{\partial\inv}
+\end{tikzcd} 
+$$
+i.e., the $k\tth$ power is replaced by something in $\cH^1(G,\PGL (\bigwedge^k ,V))$. If $n = \dim V$, then the $n\tth$ power represents $\cH^1(G,\PGL (\bigwedge^n  V)) = \cH^1(G,\PGL (E)) = \brk{F}$. We have torsion because $n\left[ A \right] = 0$ implies that $\per A | \ind A$. 
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,169 @@
+\section{Lecture (1/30)}
+Last time, we did some warm-ups to the  Double Centralizer Theorem (Theorem \ref{2.8} and Theorem \ref{3.4}) i.e., if $B \subset \End_F(V)$ where $B$ is simple, then $C_{\End_F(V)}(C_{\End_F(V)}B) = B$ and if $A \iso B\otimes C$ all CSA$/F$, then $C = C_A(B)$. As well as the Noether-Skolem Theorem (Theorem \ref{3.3}).
+
+\begin{theorem}[Double Centralizer Theorem Warm-up 3]\label{4.1}
+If $B \subset A$ are CSA$/F$, then
+\begin{enumerate}
+\item $C_A(B)$ is a CSA$/F$,
+\item $A = B C_A(B) \iso B \otimes C_A(B)$.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+If $(2)$ holds, then $A$ simple implies $C_A(B)$ is simple. If we look at $1 \otimes Z(C_A(B)) \ext Z(A) = F$, hence $C_A(B)$ is central. To prove $(2)$, we consider the map
+$$B \otimes C_A(B) \lrra A .$$
+Without lose of generality, $F  = \bar{F}$, in particular, $B = M_n(F)$ and $A = \End_F(V)$. Since $B$ is simple, there exists a simple module, and since $F^n$ is one such module, it is our unique one. If $B \subset A$, then $V$ is a $B$-module, which implies that $V = (F^n)^m$. Hence $A = M_{nm}(F) = M_m(M_n(F)).$ 
+
+Now we can compute $C_A(B) = C_{M_m(M_n(F))}(M_n(F))$, where $M_n(F)$ are block scalar matrices. Note that $C_{M_m(M_n(F))}(M_n(F)) = M_m(Z(M_n(F))) = M_m(F)$. Thus we have 
+$$M_n(F) \otimes M_m(F) \iso M_{mn}(F).$$
+\end{proof}
+
+\begin{theorem}[Full-on Double Centralizer Theorem ]\label{4.2}
+Let $B \subset A$ where $A$ is a CSA$/F$
+ and $B$ is simple. We have the following:
+ \begin{enumerate}
+ \item $C_A(B)$ is simple;
+ \item $(\dim_FB)(\dim_F(C_A(B))) = \dim_F(A)$ (Theorem \ref{3.4});
+ \item $C_A(C_A(B))= B$;
+ \item If $B$ is a CSA$/F$, then $A \iso B \otimes C_A(B)$ (Theorem \ref{4.1}). 
+ \end{enumerate}
+\end{theorem}
+\begin{proof}
+To prove $(3)$, we can think of $B \ext A \ext A\otimes A^{\op} = \End_F(A)$. By Theorem \ref{2.8}, we know that 
+$B = C_{\End_F(A)}(C_{\End_F(A)}(B))$. We note that 
+$$C_{\End_F(A)}(B) = C_{A\otimes A^{\op}}(B) = C_A(B) \otimes A^{\op},$$
+and for the second centralizer
+$$C_{A\otimes A^{\op}}(C_A(B) \otimes A^{\op}) = C_A(C_A(B)) \otimes 1 = B.$$ 
+$(1)$ follows from the fact that $C_{A\otimes A^{\op}}(B) = C_A(B) \otimes A^{\op}$ is simple.
+\end{proof}
+Suppose $A$ is a CSA$/F$ and $E \subset A $ maximal sub-field i.e., $[E:F] = \deg A$ and $E/F$ is Galois with Galois group $G$. In this case, if $\sigma \in G$, there exists $u_{\sigma} \in A\unit$ such that $u_{\sigma} \times u_{\sigma}\inv = \sigma (x)$ for $x \in E$\footnote{We will call these elements $u_{\sigma}$ Noether-Skolem elements.}. We will show that $$A = \bigoplus_{\sigma \in G}Eu_{\sigma}.$$
+
+\begin{lemma}\label{4.3}
+These Noether-Skolem elements $u_{\sigma}$ are independent of $E$.
+\end{lemma}
+
+\begin{proof}
+If not, then choose some minimal dependence relation
+\begin{eqnarray*}
+\sum x_{\sigma}u_{\sigma} &=& 0 \\
+\Rightarrow 0 & = & \sum x_{\sigma}u_{\sigma}y = \sum x_{\sigma}\sigma(y) u_{\sigma}y.
+\end{eqnarray*}
+This implies that $\lambda x_{\sigma} = x_{\sigma} \sigma (y)$ for all $\sigma$ for some fixed $\lambda$ i.e., $\sigma (y) = \lambda$ for all $\sigma$. Thus $y\in F$, so by dimension count $A = Eu_{\sigma}.$  If $u_{\sigma}$ and $v_{\sigma}$ are both Noether-Skolem for $\sigma \in G$, then $u_{\sigma}v_{\sigma}\inv x = x u_{\sigma}v_{\sigma}\inv$ for $x \in E$. We note that $u_{\sigma}v_{\sigma}\inv \in C_A(E) = E$ by Double Centralizer Theorem, so $v_{\sigma} = \lambda_{\sigma}u_{\sigma}$ for some $\lambda_{\sigma} \in E\unit$.
+\end{proof}
+Conversely, such a $v_{\sigma}$ is Noether-Skolem for $\sigma$. Notice that $u_{\sigma}u_{\tau}$ and $u_{\sigma\tau}$ are both Noether-Skolem for $\sigma \tau$, so $u_{\sigma}u_{\tau} = c(\sigma , \tau)u_{\sigma\tau}$ for some $c(\sigma , \tau) \in E\unit$. We can also check associativity meaning that $u_{\sigma}(u_{\tau}u{\gamma}) = (u_{\sigma}u_{\tau})u{\gamma}.$ 
+We will find that 
+\begin{equation}
+c(\sigma,\tau)c(\sigma\tau , \gamma) = c(\sigma,\tau\gamma)\sigma(c(\sigma,\gamma)).
+\end{equation}
+\begin{defn}\label{4.4}
+We call this the \textbf{2-cocycle condition} for a function $c : G \times G \lrra E\unit$ if 
+$$c(\sigma,\tau)c(\sigma\tau , \gamma) = c(\sigma,\tau\gamma)\sigma(c(\sigma,\gamma)).$$
+\end{defn}
+\begin{defn}\label{4.5}
+If $E/F$ is Galois, $c : G \times G \lrra E\unit$ a 2-cocycle condition, then define $(E,G,c)$ to be the \textbf{crossed product algebra}, which we denote by $\bigoplus Eu_{\sigma}$ with multiplication defined by 
+$$(xu_{\sigma})(yu_{\tau}) = x\sigma (y)c(\sigma , \tau)u_{\sigma\tau}.$$
+\end{defn}
+\begin{prop}\label{4.6}
+$A = (E,G,c)$ as above is a CSA$/F$.
+\end{prop}
+
+\begin{proof}
+If $A \surj B$, then $E \ext B$ since $E$ is simple and $u_{\sigma} \lrra v_{\sigma} \in B$ are Noether-Skolem in $B$ for $E$. Due to the independence of $B$, then we have injection. Note that $Z(A) \subset C_A(E) = E$ and note that $C_A(\brk{u_{\sigma}}_{\sigma \in G}) \cap E = F$ due to the Galois action, so we have that $A$ is central.
+\end{proof}
+
+\begin{question}
+When is $(E,G,c) \iso (E,G,c')$?
+\end{question}
+By Noether-Skolem, the isomorphism must preserve $E$ so $\varphi (E) = E$. Hence $\varphi (u_{\sigma})$ is a Noether-Skolem in $(E,G,c')$. Since $(E,G,c) = \bigoplus Eu_{\sigma} \aad (E,G,c') = \bigoplus Eu_{\sigma '}$, hence $\varphi (u_{\sigma}) = x_{\sigma}u_{\sigma '}.$ The homorphism condition says that 
+$$\varphi (c(\sigma , \tau)u_{\sigma\tau}) = c(\sigma,\tau)x_{\sigma\tau}u_{\sigma\tau}'  = \varphi(u_{\sigma}u_{\tau}) = \varphi (u_{\sigma})\varphi(u_{\tau}) = (x_{\sigma}u_{\sigma}')(x_{\tau}u_{\tau}'),$$
+which implies that $$c(\sigma , \tau)x_{\sigma \tau} = x_{\sigma} \sigma (x_{\tau})c'(\sigma , \tau)$$
+i.e., $c(\sigma , \tau) = x_{\sigma}\sigma (x_{\tau})x_{\sigma\tau}\inv c'(\sigma ,\tau)$ for some elements $\sigma \in E\unit$ for each $\sigma \in G$.
+
+\begin{defn}\label{4.7}
+We say that $c,c'$ are \textbf{cohomologous} if there exists $b : G \lrra E\unit$ such that 
+$$c(\sigma , \tau) = b(\sigma)\sigma(b(\tau))b(\sigma \tau)\inv c'(\sigma ,\tau).$$
+
+\end{defn}
+
+\begin{defn}\label{4.8}
+Set $$B^2(G,E\unit) = \brk{f : G\times G \lrra E\unit | f  = b(\sigma)\sigma (b(\tau))b(\sigma \tau)\inv \fs b : G \lrra E\unit}$$ and $$Z^2 (G , E\unit) = \brk{f : G\times G \lrra E\unit | 2 \text{ cocyles}}.$$ These are groups via point-wise multiplication. We define 
+$$H^2(G,E\unit) = \frac{Z^2(G,E\unit)}{B^2(G,E\unit)}.$$
+\end{defn}
+\begin{prop}\label{4.9}
+$H^2(G,E\unit)$ is in bijection with isomorphism classes if CSA$/F$ such that $E \subset A$ is maximal.
+\end{prop}
+To approach the group structure, we need to learn about idempotents.
+\subsection{Idempotents}
+
+
+\begin{defn}\label{4.11}
+We call an element $e \in A$ an \textbf{idempotent} if $e^2  = e$. 
+\end{defn}
+If $e$ is central, then it is clear that $e(1-e) = 0$ and $(1-e)^2 = 1 -e$. Now $$A = A \cdot 1 = A(e + (1-e)) = Ae \times A(1-e).$$
+The point is that $e \in eA \aad (1-e) \in (1-e)A$ act as identities, hence $(ae)(b(1-e)) = abe(1-e) = 0$. Writing a ring $A = A_1 \times A_2$ is equivalent to finding idempotents i.e., identity elements in $A_1 \aad A_2$. If $e$ is not central, $f=  1 -e \aad e + f = 1$. So we can write
+$$1 A 1 = (e+f)A(e+f) = eAe + eAf + fAe + fAf$$ 
+where $eAe \aad fAf$ are rings with identities $e\aad f$. 
+
+If we think of $$A = \End(A_A) = \End(eA \oplus fA) = \begin{pmatrix}
+\End (eA) & \Hom(fA , eA) \\ \Hom(eA,fA) & \End(fA)
+\end{pmatrix}$$
+We claim that this decomposition falls in line with 
+$A = eAe \oplus eAf \oplus fAe \oplus fAf.$
+Suppose we take $(eaf)(eb) = 0$ and $(eaf)(fb) \in eA$. We note that 
+$$eaf = \begin{pmatrix}
+0 & \star \\ 0 & 0 
+\end{pmatrix}$$
+so we have that 
+$$eAf = \begin{pmatrix}
+0 & \Hom(fA,eA) \\ 0 & 0 
+\end{pmatrix}$$
+So $eAe = \End_A(eA)$and $eAf = \Hom_A(fA,eA)$, and so on and so on. This is called \textbf{Pierce decomposition}. So as a matrix algebra we have
+$$A = \begin{pmatrix}
+eAe & fAe \\ eAf & fAf
+\end{pmatrix}$$
+Let's assume that $A$ is a CSA$/F$ and let $e \in A$ be an idempotent. So we have $eAe = \End_A(eA) = \End_A(P^n) = M_n(D)$ and $A = \End_A(A_A) = \End_A(P^m) = M_m(D)$, where $D = \End_A(P_A)$, which implies that $eAe \eqr A$ under the Brauer equivalence. So idempotents give us a way to recognize Brauer equivalence. 
+
+If we take two cross product algebras, $(E,G,c) \otimes (E,G,c') \eqr (E,G,cc')$. We want an idempotent in the tensor product that will allow us to ``chop" or deduce our equivalence. Note that $$E\otimes E = E\otimes F[x]/f(x) = E[x]/f(x) = \prod E[x]/(x-\alpha_i) = \prod_{\sigma \in G}E[x]/(x-\sigma(\alpha)) = \prod_{\sigma \in G}E,$$
+where $\alpha$ is just some root. This says that there are idempotents in the product, namely $e_{\sigma} \in E\otimes E$, where $\sigma \in G$. The punchline is that $e_1$ will work, but we will need to prove it. Let's look at the map
+\begin{eqnarray*}
+E\otimes E & \lrra & \frac{E[x]}{x-\sigma (\alpha)} \iso E \\
+a \otimes b & \longmapsto & a\sigma (b) \\
+1 \otimes \alpha & \longmapsto & x \\
+(1\otimes z)e_{\sigma} &\longmapsto  & E \sigma (a)\\
+(\sigma (a) \otimes 1)e_{\sigma} & \longmapsto  & \sigma(a) 
+\end{eqnarray*}
+Hence $(1\otimes a)E_{\sigma} = (\sigma (z) \otimes 1)e_{\sigma}.$ Let $(E,G,c) = A \ni u_{\sigma}	 \aad (E,G,c') = A' \ni u_{\sigma}'.$
+Let $ e = e_1$ so $eAe \ni ew_{\sigma}$ where $w_{\sigma} = u_{\sigma} \otimes u_{\sigma}'$, which does exists. We note that $E \otimes E \subset A \otimes A'.$ We want to see how the $e$ and the Noether-Skolem elements interact,
+\begin{eqnarray*}
+(1\otimes u_{\sigma}')e(1\otimes u_{\sigma}^{'-1})(1\otimes x) &=& (1\otimes u_{\sigma}^{'-1})e(1\otimes \sigma (x))(1\otimes u_{\sigma}') \\ &=& (1\otimes u_{\sigma}^{'-1})e(\sigma(x) \otimes 1)(1\otimes u_{\sigma}') \\ &=& (1\otimes u_{\sigma}^{'-1})e(1\otimes u_{\sigma}')(\sigma (x) \otimes 1).
+\end{eqnarray*}
+This did what $e_{\sigma}$ should do. Note that conjugation takes idempotents to idempotents, so $(1\otimes u_{\sigma}^{'-1})$ is in fact idempotent. We can note that $(u_{\sigma}\otimes u_{\sigma}')e = e(u_{\sigma}\otimes u_{\sigma}')$, so if we let $w_{\sigma} = (u_{\sigma}\otimes u_{\sigma}').$ Then we have that $ew_{\sigma} = e^2 w_{\sigma} = ew_{\sigma}e \in eA \otimes A'e$. We want $eA \otimes A'e$ as $(E,G,c)$. Since $eE \otimes E \iso E$ via the map $e(E\otimes 1).$ 
+
+We want to show that if we have 
+\begin{eqnarray*}
+ew_{\sigma}(x\otimes 1)e &=& e(u_{\sigma} \otimes u_{\sigma}')(x\otimes 1)e  \\ &=& e(\sigma (x) \otimes 1)(u_{\sigma}\otimes u_{\sigma}')e \\ &=& e(\sigma (x) \otimes 1)w_{\sigma}e
+\end{eqnarray*}
+So $ew_{\sigma}'$'s are Noether-Skolem elements, so 
+$$eA \oplus A'e \supseteq \bigoplus_{\sigma \in G}e(E \otimes 1)ew_{\sigma}.$$
+For equality, let $e(xu_{\sigma} \otimes yu_{\tau}')e \in eA \otimes A'e$. We can re-write this as so,
+\begin{eqnarray*}
+e(xu_{\sigma} \otimes yu_{\tau}')e & = & e(x\otimes y)(u_{\sigma} \otimes u_{\tau}')e \\
+& = & e(x\otimes y)(u_{\sigma}u_{\tau}^{'-1}\otimes 1)(u_{\tau} \otimes u_{\tau}')e \\
+& = & (xy \otimes 1)e(u_{\sigma} u_{\tau}\inv \otimes 1 )ew_{\tau}e \\
+& = & (xy\otimes 1)\lambda e(u_{\sigma}u_{\tau\inv} \otimes 1)e \\
+& = & (xy\otimes 1)\lambda (u_{\sigma}u_{\tau\inv} \otimes 1)e_{\sigma\tau\inv }e \\
+& = & \left\lbrace \begin{array}{cc}
+0 & \mif \sigma \neq \tau \\ \lambda''e & \text{ otherwise.}
+\end{array}\right. \\
+& = & \left\lbrace \begin{array}{cc}
+0 & \mif \sigma \neq \tau \\ (xy\otimes 1)(\lambda \otimes 1)e\lambda''ew_{\sigma}e \in \bigoplus_{\sigma \in G}e(E \otimes 1)ew_{\sigma} & \text{ otherwise.}
+\end{array}\right.
+\end{eqnarray*}
+since $u_{\tau}\inv = \lambda u_{\tau\inv}$ for some $\lambda \in E\unit$. Hence $eA \otimes A'e \iso A \otimes A' \iso (E,G,cc').$ Danny checks the cocycle condition, however, I will not repeat this computation. Thus we have shown that the operation in $H^2 = \Br$ group operation i.e., $$\Br (E/F) := \brk{[A] : A \gap CSA/F \text{ with }E\subset A \text{ maximal}}$$ is a subgroup of $\Br (F) \iso H^2(G,E\unit).$ We sometimes call this group $\Br (E/F)$ the \textbf{relative Brauer group of $F$.}
+
+
+
+
+
+
+
+

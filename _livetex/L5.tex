@@ -1,0 +1,149 @@
+\section{Lecture (2/6)}
+Last time we defined that $\Br (E/F)$ is the set of equivalence classes of CSA$/F$ with $E$ maximal sub-field and $E/F$ is Galois. We showed that his is actually a group, namely, $\Br (E/F) \iso \cH^2(G,E\unit) = Z^2(G,E\unit)/B^2(G,E\unit)$. The mapping from $\cH^2(G,E\unit)$ to $\Br(E/F)$ was defined by $c \mapsto (E,G,c)$, then crossed product algebra as defined in \ref{4.5}. We want to relate splitting fields to maximal subfields. 
+
+\begin{defn}\label{5.1}
+We say that $E/F$ \textbf{splits} if $A \otimes_F E \iso M_n(E)$.
+\end{defn}
+
+We always have splitting fields, namely the algebraic closure; moreover, there are splitting fields which are finite extensions. 
+\begin{lemma}\label{5.2}
+If $A \, \CSA/F$, $E \subset A$ subfield, then 
+$C_A(E) \eqr A \otimes_F E$.
+\end{lemma}
+\begin{proof}
+Note that $\otimes E \ext  A\otimes A^{\op} = \End_FA$. We look at $$\End_E(A) = C_{\End_F(A)}(E) = A \otimes C_{A^{\op}}(E) = A \otimes_F E \otimes_E C_{A^{\op}}(E)$$ $$ = (A\otimes_F E)\otimes_E C_{A^{\op}}(E) = (A\otimes_F E)\otimes_E C_{A}(E)^{\op}.$$ 
+Since $\End_E(A)$ is a split $E$-algebra, thus
+$$[A\otimes E] - [C_A(E)] = 0 \in \Br E.$$
+\end{proof}
+\begin{coro}\label{5.3}
+If $E \subset D$ $D \, \CSA/F$, then $(\ind \, D\otimes E)[E:F] = \ind D$.
+\end{coro}
+\begin{proof}
+By Theorem \ref{4.2}, we have that $\dim_F C_D(E)[E:F] = \dim_F D$. By taking the dimension over $E$, we have
+\begin{eqnarray*}
+\deg C_D(E)^2 [E:F]^2 &=& (\deg D)^2 \\
+\deg C_D(E) [E:F] &=& (\deg D) = \ind D \\
+\Rightarrow \ind C_D(E)[E:F] & = & \ind D \\
+(\ind D \otimes E)[E:f] & = & \ind D.
+\end{eqnarray*}
+\end{proof}
+\begin{remark}\label{5,4}
+If $E \subset A$ is a maximal subfield, then $A \otimes E$ is split. Indeed, since $A \otimes E\eqr C_A(E) = E$ by Theorem \ref{4.2}.
+
+\end{remark}
+
+\begin{prop}\label{5.5}
+If $A \, \CSA/F$, $E \otimes A \iso M_n(F)$, and $[E:F] = \deg A = n$, then $E$ is isomorphic to a maximal subfield of $A$.
+\end{prop}
+
+
+\begin{proof}
+Note that $E \ext \End_F(E) = M_n(F) \ext A \otimes M_n(F).$ Now we compute
+\begin{eqnarray*}
+C_{A\otimes M_n(F)}(E) & \iso & (A\otimes M_n(F)) \otimes_F E \\
+& \iso & M_n(F)  = E \otimes M_n(F)
+\end{eqnarray*}
+We have the map
+\begin{eqnarray*}
+\varphi :  E \otimes M_n(F) & \lrra & A \otimes M_n(F) \\
+M_n(F) & \longmapsto & B
+\end{eqnarray*}
+By Noether-Skolem, we acn replace $\varphi$ by $\varphi$ composed with an inner automorphism so that $B \iso 1 \otimes M_n(F)$. So now note that $C_{E \otimes M_n(F)}(M_n(F)) \subset E \subset E \otimes M_n(F)$, hence $\varphi (E) \subset C_{E \otimes M_n(F)}(M_n(F))E =A \otimes 1.$
+\end{proof}
+If we have a splitting field for our algebra with appropriate dimension, then it must a maximal field.
+\begin{coro}\label{5.6}
+Let $A /F$ be a $\CSA/F$, then $[A] \in \Br (E/F)$ for some $E/F$ is Galois.
+\end{coro}
+
+\begin{proof}
+Write $A = M_m(D)$, where $[A] = [D]$. WLOG $A$ is a division algebra. We know that $D$ has a maximal separable subfield $L \subset D$. Let $E/F$ be the Galois closure of $L/F$. We claim that $E \ext M_m(D).$  We have that $E \ext \End_L(E) = M_{[E:L]}(L)$ via left-multiplication. If we look at $D \otimes_F M_{[E:L]}(F)\supset L \otimes M_{[E:L]}(F) = M_{[E:L]}(L) \supset E$. Note that the left hand side has degree equal to $[E:F]$ since $\deg D [E:L] = [L:F][E:L] = [E:F].$ By Lemma \ref{5.5}, we have that $E$ is a maximal subfield of $D \otimes M_{[E:L]}(F)$. Therefore, $[A] = [D] \in \Br(E/F).$
+\end{proof}
+
+\subsection{Galois Descent}We fix $E/F$ a $G$-Galois extension.
+$A$ is a $\CSA/F$ if and only if $A\otimes E \iso M_n(E)$ for some $E/F$ Galois. We can interpret this as saying that $A$ is a ``twiseted form" of a matrix algebra.
+\begin{defn}\label{5.8}
+Given an algebra $A/F$, we say that $B/F$ is a \textbf{twisted form of $A$} if $A \otimes_F E \iso B \otimes_F E$ for some $E/F$ separable and Galois.\footnote{We could make an equivalent definition for any \textit{algebraic structure}. We leave this vague on purpose.}
+\end{defn}
+
+Descent is the process of going from $E$ to $F$ i.e., descending back down. We use that fact that $E^G = F$ where $G$ is the Galois group. The idea is as follows: given $A \otimes E$, $G$ acts on the $E$-part and the invariatns give $A$. The issue here is that the isomorphism in Definition \ref{5.8} does not respect the Galois action, meaning that different actions could produce different isomorphisms. 
+
+
+
+\begin{defn}\label{5.9}
+A \textbf{semi-linear action} of $G$ on an $E$-vector space $V$ is an action of $G$ on $V$ (as $F$-linear transformations) such that 
+\begin{equation}
+\sigma (xv) = \sigma(x)\sigma(v) \quad \forall \,  x\in E,v\in V.
+\end{equation}
+\end{defn}
+
+
+\begin{theorem}\label{5.10}
+There is an equivalence of categories
+\begin{eqnarray*}
+\brk{F\text{-vector spaces}} & \longleftrightarrow & \brk{E\text{-vector spaces with semi-linear action}} \\
+V & \longmapsto & V \otimes_F E \\
+W^G & \longmapsfrom & W 
+\end{eqnarray*}
+\end{theorem}
+If $V$ is an $E$-space with semi-linear action, we get an action of $(E,G,1)$ on $V$ where $E = \bigoplus Eu_{\sigma}$ and $u_{
+\sigma}u_{\tau} = u_{\sigma\tau}$ and $u_{\sigma}x = \sigma (x)u_{\sigma}$ via $(xu_{\sigma})(v) = x\sigma (v)$. We can check well-definedness as so
+\begin{eqnarray*}
+(xu_{\sigma})(yu_{\tau})(v) & = & xu_{\sigma}(y\tau(v)) = x\sigma (y)\sigma\tau(v) \\
+\Rightarrow (x\sigma (y)u_{\sigma}u_{\tau})(v) = x \sigma (y)u_{\sigma\tau}(v) = x\sigma (y)\sigma\tau(v) & = & x\sigma (y)\sigma\tau(v)
+\end{eqnarray*}
+Actually, a semi-linear action on $U$ is a $(E,G,1)$ module structure $u_{\sigma}v$. Hence $(E,G,1)$ has a unique simple module $E$. If $V$ is semi-linear, then $V \iso E^n$ and vice versa. To see the equivalence of Theorem \ref{5.10}, we notice that the unique simple $E$ goes to $F$ and the $F$ goes back to $E$, and these are unique. 
+
+
+If $V$ is some semi-linear space, so a $(E,G,1)$ module, then $V^G \iso E' \otimes_{(E,G,1)} V$, where $E'$ is the unique simple $(E,G,1) $ module. We hope to describe this later.
+\begin{defn}\label{5.11}
+
+If $V,W$ are semi-linear spaces, then a semi-linear morphism is $\varphi : V \rra W$ is an $F$ linear map such that $\varphi (\sigma (v))  = \sigma \varphi (v)$. 
+\end{defn}
+Under the equivalence of Theorem \ref{5.10}, we can see that 
+$$\bigoplus Fe_i \iso W \lrra \bigoplus Ee_i \iso W\otimes E \lrra (W\otimes E)^G = \bigoplus E^Ge_i \iso \bigoplus Fe_i$$
+In the reverse direction, we know that $$V = \bigoplus Ee_i \lrra \bigoplus E^Ge_i = \bigoplus Fe_i \lrra \bigoplus (F\otimes_F E)e_i = \bigoplus Ee_i.$$
+We have shown that there is a \textit{natural} isomorphism of objects, so now we must consider arrows. If $\varphi : W \lrra W$ is an $F$- linear map, then $\varphi \otimes E : W\otimes E \lrra W'\otimes E$. Then
+$$
+\begin{tikzcd}
+a\otimes x \arrow{r}\arrow{d}{\sigma} & \varphi (a) \otimes x \arrow{d}{\sigma}\\
+a\otimes \sigma (x) \arrow{r} & \varphi(a) \otimes \sigma (x)
+\end{tikzcd}
+$$
+i.e., $\sigma$ acts on the left component. If $\psi : V \lrra V'$ is semi-linear, then $\psi$ induces a map via restriction to $V^G \lrra (V')^G$, so the arrows correspond as well.
+
+If $V,W$ are semi-linear spaces, how should we define the action on $V \otimes_E W$? It is sort of induced on us, meaning $V = \overline{V} \otimes E$ and $W = \overline{W} \otimes E$. Hence 
+$$V \otimes_E W = (\overline{V} \otimes E) \otimes_E (\overline{W} \otimes E )= (\overline{V} \otimes \overline{W}) \otimes E.$$
+We can check the compatibility of the action by consider the diagram:
+$$
+\begin{tikzcd}
+(\overline{V} \otimes E) \otimes_E (\overline{W} \otimes E) \arrow{r} &  (\overline{V} \otimes \overline{W}) \otimes E \arrow{l} \\
+\overline{V} \otimes \overline{W} \arrow{u}\arrow{ru} & {}
+\end{tikzcd}
+$$
+Hence the answer to our previous question is that $\sigma$ must act on the right component. Thus we have an equivalence of categories with tensors.
+
+\begin{defn}\label{5.12}
+A \textbf{semi-linear action} of $G$ on an algebra $A/E$ is a map from $G \lrra \Aut (A/F)$ such that $\sigma (xa) = \sigma (x)\sigma (a)$ for all $x\in E, a \in A$. In particular, $\sigma (ab) = \sigma (a)\sigma (b)$ implies that $A \otimes A \lrra A$ is semi-linear.
+\end{defn}
+
+Theorem \ref{5.10} says that semi-linear algebras over $E$ correspond to $F$-algebras by taking invariants and tensoring up. We now want to classify these semi-linear mappings. If $A$ is some interesting algebra, we want to find all twisted forms $A$. If $B$ is a twisted form and we have an isomorphism $\phi : B \otimes E \lrra A \otimes E$. We can define a new action where $\sigma_B(\alpha) = \phi(\sigma(\phi\inv(\alpha)))$ where $\alpha \in A \otimes E$. How do these actions compare?
+
+We can compute $\sigma\inv(\sigma_B(\alpha)) \in \Aut_E(A\otimes E)$ and we can check that $\sigma\inv(\sigma_B(x\alpha)) = x \sigma\inv(\sigma_B(\alpha)).$ For similar reasons, $\sigma_B \circ \sigma\inv \in \Aut_E(A\otimes E)$ so $\sigma_B = a_{\sigma}\circ \sigma$ for some $a_{\sigma}\in \Aut_E(A\otimes E).$ We can check that $\sigma_B\tau_B = (\sigma\tau)_B$; moreover that $a_{\sigma\tau} = a_{\sigma}\sigma(a_{\tau})$, which is called the \textbf{1-cocycle} or equivalently $a(\sigma \tau)  =a(\sigma)\sigma(a\tau)$ a \textbf{cross homomorphism}.
+
+
+\begin{theorem}\label{5.13}
+If $B$ is a twisted form of $A$, there there exists a map $G$ to $\Aut_E(A\otimes E)$ which is a 1-cocycle and such that $B = (A \otimes E)_a^G$ where the subscript means $A\otimes E$ with the new action $\sigma_a(\alpha) = a_{\sigma}\sigma(\alpha)$. Conversely, every such 1-cocycle gives a twisted form.
+\end{theorem}
+
+
+\begin{proof}
+Given a 1-cocycle $a : G \lrra \Aut(A\otimes E)$, let's check that the action of $(A\otimes E)_a$ is semi-linear. We want to know that $\sigma_a\tau_a(\alpha) = (\sigma\tau)_a(\alpha)$ and $\sigma_a(x\alpha) = \sigma(x)\sigma_a(x)$. Using the assumption that $a$ is a 1-cocycle and doing a cohomology calculation, we can verify these results. Once we picked an isomorphism $A\otimes E \lrra B \otimes E$, then everything else was well-defined. If we pick different $\varphi$'s then how is everything related. We can find that $a_{\sigma}\aad a_{\sigma}'$ are cohomologous if $a_{\sigma}' = ba_{\sigma}(\sigma b\inv \sigma\inv)$ for some $b \in \Aut (A\otimes E).$ The equivalence classes under cohomology are in bijective correspondence with isomorphism classes of semi-linear actions and therefore, in bijection with twisted forms of $A$.
+
+\end{proof}
+\begin{defn}\label{5.14}
+We define $\cH^1(G,\Aut (A\otimes E))$ is the \textit{set} of these cohomology classes i.e., cocycles up to equivalence. The base point of this pointed set is $a_{\sigma} = 1$, which refers to $A$ as a twisted algebra of itself $A$.
+\end{defn}
+
+
+
+

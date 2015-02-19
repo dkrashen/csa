@@ -1,0 +1,249 @@
+\usepackage{tikz}
+\usepackage{stmaryrd}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{amsfonts}
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{thmtools}
+\usepackage{enumerate}
+\usepackage{picinpar} % for pictures in paragraphs
+\usepackage{tikz-cd}
+\usepackage{color}
+%\usepackage{sectsty}
+\usepackage{latexsym}
+\usepackage{enumitem}
+\usepackage{wasysym}
+\usepackage[toc,page]{appendix}
+\usepackage{url} 
+%\usepackage{xcolor}
+\usepackage[numbers]{natbib}         % bibliography style
+\usepackage[colorlinks]{hyperref} 
+\hypersetup{colorlinks=true,citecolor=blue, linkcolor = blue}
+\usepackage{setspace}
+\setlength{\bibsep}{5.0pt}
+\usepackage{mathpazo}
+
+\makeatletter
+\def\@tocline#1#2#3#4#5#6#7{\relax
+  \ifnum #1>\c@tocdepth % then omit
+  \else
+    \par \addpenalty\@secpenalty\addvspace{#2}%
+    \begingroup \hyphenpenalty\@M
+    \@ifempty{#4}{%
+      \@tempdima\csname r@tocindent\number#1\endcsname\relax
+    }{%
+      \@tempdima#4\relax
+    }%
+    \parindent\z@ \leftskip#3\relax \advance\leftskip\@tempdima\relax
+    \rightskip\@pnumwidth plus4em \parfillskip-\@pnumwidth
+    #5\leavevmode\hskip-\@tempdima
+      \ifcase #1
+       \or\or \hskip 1em \or \hskip 2em \else \hskip 3em \fi%
+      #6\nobreak\relax
+    \dotfill\hbox to\@pnumwidth{\@tocpagenum{#7}}\par
+    \nobreak
+    \endgroup
+  \fi}
+\makeatother
+
+\newenvironment{warning}{ \vspace{.5em} \textdbend Warning.}{•}
+
+
+\numberwithin{equation}{subsection}
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{lemma}[subsection]{Lemma}
+\newtheorem{sublemma}[subsubsection]{Lemma}
+\newtheorem{coro}[subsection]{Corollary}
+\newtheorem{subcorollary}[subsubsection]{Corollary}
+\newtheorem{prop}[subsection]{Proposition}
+\newtheorem{subproposition}[subsubsection]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{subdefinition}[subsubsection]{Definition}
+\newtheorem{question}{Question}
+\newtheorem*{answer}{Answer}
+\newtheorem*{fact}{N.B}
+%\newtheorem*{warning}{{\color{red}Warning}}
+\newtheorem{exercise}[subsection]{Exercise}
+\newtheorem*{claim}{Claim}
+\newtheorem*{apply}{Application}
+\newtheorem{conjecture}{Conjecture}
+%\newtheorem{exam}[subsection]{Example}
+\newtheorem{exam}[subsubsection]{Example}
+\newtheorem{examples}[subsection]{Examples}
+
+
+\theoremstyle{remark}
+\newtheorem{remark}[subsection]{Remark}
+\newtheorem{defn}[subsection]{Definition}
+\newtheorem{subremark}[subsubsection]{Remark}
+\newtheorem{remarks}[subsection]{Remarks}
+
+
+\newcommand{\labelpar}[1]{\refstepcounter{subsection}\label{#1}\thesubsection.}
+
+\newcommand{\md}{\text{ mod }}
+
+\newcommand{\mZ}{\mathbb{Z}}
+\newcommand{\mR}{\mathbb{R}}
+\newcommand{\mQ}{\mathbb{Q}}
+\newcommand{\mF}{\mathbb{F}}
+\newcommand{\mC}{\mathbb{C}}
+\newcommand{\mN}{\mathbb{N}}
+\newcommand{\mD}{\mathbb{D}}
+\newcommand{\mA}{\mathbb{A}}
+\newcommand{\mK}{\mathbb{K}}
+\newcommand{\mP}{\mathbb{P}}
+
+\newcommand{\cC}{\mathcal{C}}
+\newcommand{\cD}{\mathcal{D}}
+\newcommand{\cT}{\mathcal{T}}
+\newcommand{\cA}{\mathcal{A}}
+\newcommand{\cS}{\mathcal{S}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\cB}{\mathcal{B}}
+\newcommand{\cM}{\mathcal{M}}
+\newcommand{\cH}{\text{H}}
+\newcommand{\ch}{\mathcal{h}}
+\newcommand{\cN}{\mathcal{N}}
+\newcommand{\cZ}{\mathcal{Z}}
+\newcommand{\cL}{\mathcal{L}}
+
+\newcommand{\fN}{\mathfrak{N}}
+\newcommand{\fM}{\mathfrak{M}}
+\newcommand{\fJ}{\mathfrak{J}}
+\newcommand{\fD}{\mathfrak{D}}
+\newcommand{\fC}{\mathfrak{C}}
+\newcommand{\fW}{\mathfrak{W}}
+\newcommand{\fF}{\mathfrak{F}}
+\newcommand{\ff}{\mathfrak{f}}
+\newcommand{\fa}{\mathfrak{a}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\fm}{\mathfrak{m}}
+\newcommand{\fP}{\mathfrak{P}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fc}{\mathfrak{c}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\fI}{\mathfrak{I}}
+
+\newcommand{\lifaf}{\Longleftrightarrow}
+\newcommand{\st}{\text{ such that }}
+\newcommand{\lt}{$T:\mR^n \rightarrow \mR^m$ \text{ }}
+\newcommand{\nl}{\newline}
+\newcommand{\lmt}{\lim_{x \longrightarrow x_0}}
+\newcommand{\nrm}[1]{\left |\left |#1\right |\right |}
+\newcommand{\ifaf}{\Leftrightarrow}
+\newcommand{\grad}{\triangledown}
+\newcommand{\fd}{^{\prime}}
+\newcommand{\sd}{^{\prime \prime}}
+\newcommand{\wo}{\setminus}
+\newcommand{\lra}{\longrightarrow}
+\newcommand{\rra}{\rightarrow}
+\newcommand{\krn}{\text{ker }}
+\newcommand{\zf}{\textbf{o}}
+\newcommand{\aad}{\text{ and }}
+\newcommand{\mm}[1]{$ #1 $}
+\newcommand{\xmod}[1]{$#1-$module}
+\newcommand{\xmods}[1]{$#1-$modules}
+\newcommand{\ZZ}[1]{\mathbb{Z} / #1 \mathbb{Z}}
+\newcommand{\brk}[1]{ \left\lbrace #1 \right\rbrace }
+\newcommand{\inv}{^{-1}}
+\newcommand{\tsr}[2]{ #1 \otimes #2}
+\newcommand{\homo}{homomorphism }
+\newcommand{\homos}{homomorphisms }
+\newcommand{\rmod}{$R-$module }
+\newcommand{\fmod}{$F-$module }
+\newcommand{\rmods}{$R-$modules }
+\newcommand{\mforall}{ \text{ for all }}
+\newcommand{\mof}{\text{ of }}
+\newcommand{\mby}{\text{ by }}
+\newcommand{\mfor}{\text{ for }}
+\newcommand{\mif}{\text{ if }}
+\newcommand{\tth}{^{\text{th}}}
+\newcommand{\Int}[1]{\text{Int }#1}
+\newcommand{\Cl}[1]{\text{Cl }#1}
+\newcommand{\gap}{\hspace{.5em}}
+\newcommand{\fs}{\text{ for some }}
+\newcommand{\nrl}{\unlhd}
+\newcommand{\V}{\vee}
+\newcommand{\iso}{\cong}
+
+\newcommand{\ralg}{$R-$algebra }
+\newcommand{\ralgs}{$R-$algebras }
+\newcommand{\xalg}[1]{$#1-$algebra}
+\newcommand{\ext}{\hookrightarrow}
+\newcommand{\pwr}[1]{\left( #1 \right)}
+\newcommand{\brt}[1]{\left[ #1 \right]}
+\newcommand{\eqr}{\backsim}
+\newcommand{\notdiv}{\nmid}
+\newcommand{\lrra}{\longrightarrow}
+\newcommand{\mor}{\text{ or }}
+\newcommand{\brc}[1]{\left[ #1 \right]}
+\newcommand{\invlmt}{\underleftarrow{\lim} \gap }
+\newcommand{\sgap}{\hspace{.25em}}
+\newcommand{\bfit}[1]{\textbf{\textit{#1}}}
+\newcommand{\unit}{^{\times}}
+\newcommand{\ceil}[1]{•\lceil #1 \rceil}
+\newcommand{\fps}[1]{\llbracket #1 \rrbracket}
+\newcommand{\frob}{\text{Frob}}
+\newcommand{\uZZ}[1]{\left( \mathbb{Z} / #1 \mathbb{Z} \right)^{\times}}
+\newcommand{\surj}{\Huge{\twoheadrightarrow}}
+\newcommand{\G}[1]{G_{#1}}
+\newcommand{\ns}[1]{u_{\#1}}
+\newcommand{\pabs}[1]{\left| #1 \right|_p}
+\newcommand{\tabs}[2]{\left| #1 \right|_{#2}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+\newcommand{\mwith}{\text{ with }}
+\newcommand{\mfall}{\text{ for all }}
+\def\quotient#1#2{\raise1ex\hbox{$#1$}{\Large/} \lower1ex\hbox{$#2$}}
+\newcommand{\mto}{\text{ to }}
+\newcommand{\comment}[1]{{\color{blue}$\spadesuit\spadesuit\spadesuit $\textsf{Jackson: #1}}}
+
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\tam}{tam}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\car}{char}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\sep}{sep}
+\DeclareMathOperator{\mwhere}{where}
+\DeclareMathOperator{\gal}{Gal}
+\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\Frac}{Frac}
+\DeclareMathOperator{\Frob}{Frob}
+\DeclareMathOperator{\splt}{Splt}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\GL}{GL}
+\DeclareMathOperator{\PGL}{PGL}
+\DeclareMathOperator{\nr}{nr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\ab}{ab}
+\DeclareMathOperator{\sst}{st}
+\DeclareMathOperator{\cyc}{cyc.}
+\DeclareMathOperator{\SL}{SL}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Mor}{Mor}
+\DeclareMathOperator{\tors}{tors}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Pic}{Pic}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\spl}{sp}
+\DeclareMathOperator{\nsp}{nsp}
+\DeclareMathOperator{\ann}{ann}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Mat}{M}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\ind}{ind}
+\DeclareMathOperator{\per}{per}
+\DeclareMathOperator{\CSA}{CSA}
+
+
+

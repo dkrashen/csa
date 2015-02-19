@@ -1,0 +1,134 @@
+\section{Lecture (1/23)}
+Last time, we had a number of ways to characterize CSA's. $A$ CSA if and only if there exists $B \st A\otimes B \in \Mat_n(F)$ if and only if $A \otimes A^{\op} \iso \End(A)$ if and only if $A \otimes_F L \iso \Mat_n(F) \fs L/F$ if and only if $A\otimes_F \overline{F} \iso \Mat_n(\overline{F})$ if adn only if for every CSA $B$, $A\otimes B$ is a CSA (similarly for field extensions).
+
+If $A,B$ CSA, then $A\otimes B$ is a CSA. In Definition \ref{2.16}, we defined the relation that gave rise to the Brauer group. Moreover, in Definition \ref{2.17}, we gave the Brauer group a group structure. 
+
+\begin{lemma}\label{3.1}
+$A/F$ is a CSA and $B/F$ simple, finite dimensional, then $A\otimes B$ is simple.
+\end{lemma}
+
+\begin{proof}
+If $L = Z(B)$, then $B/L$ is a CSA. Hence $A\otimes_F B \iso A\otimes_F(L\otimes_L B) \iso (A\otimes_F L)\otimes_L B$ i.e., we are tensoring over two CSA's. Thus, we have a CSA$/L$, in particular, simple.
+\end{proof}
+
+\begin{lemma}\label{3.2}
+Let $A = B\otimes C$ CSA's, then $C = C_A(B).$
+\end{lemma}
+
+\begin{proof}
+By definition, everything in $C$ centralizes $A$, so $C \subset C_A(B).$ But $$\dim_F(C_A(B)) = \dim_{\overline{F}}(C_A(B) \otimes \overline{F}) = \dim_{\overline{F}}(C_{A\otimes \overline{F}}(B\otimes \overline{F}))$$
+Without lose of generality, $B = \Mat_n(\overline{F}), C = \Mat_m(\overline{F})$. Hence 
+$$A = \Mat_n(\overline{F}) \otimes \Mat_m(\overline{F}) = \Mat_m(\Mat_n(\overline{F})).$$
+So we want to look at $$C_{\Mat_m(\Mat_n(\overline{F}))}(\Mat_n(\overline{F})) = \Mat_m(C_{\Mat_n(\overline{F})}\Mat_n(\overline{F})) = \Mat_m(Z(\Mat_n(\overline{F}))) = \Mat_m(\overline{F}) = C$$ by Lemma 3.4.1 of Danny's notes.
+
+\end{proof}
+
+\begin{theorem}[Noether-Skolem]\label{3.3}
+Suppose that $A/F$ is a CSA, $B,B' \subset A$ is a simple sub-algebra and $\psi : B \iso B'$. Then there exists $a \in A\unit$ such that $\psi(b) = aba\inv$.
+\end{theorem}
+\begin{fact}
+Think about inner automorphisms of matrices. 
+\end{fact}
+\begin{proof}
+So $B \ext A, B' \ext A$ and $A \ext A\otimes A^{\op} \iso \End_F(A) = \End_F(V)$ where $V=A.$\footnote{We want to do this to remind ourselves that $A$ is a vector space and also for notational reasons.} $V$ is a $A-A$ bi-module, so it is a $B-A$ module or $B\otimes A^{\op}$ left module. Since $B$ is simple and $A^{\op}$ CSA, we have $B \otimes A^{\op}$ is simple, so it has a unique simple left module. $V$ is determined by its dimension as a $B \otimes A^{\op}$ module since it can be regarded as a $B\otimes A^{\op}$ module in two different ways by two different actions, $(\psi(b) \otimes a)(v) \aad (b\otimes a)(v)$. These two modules are isomorphic, that is to say that there exists $\phi : V \iso V \st \phi((b\otimes a')(b)) = (\psi(b) \otimes a')(\phi(v)).$
+
+Note that $\phi \in \End(V)\unit = \End(A)\unit = (A \otimes A^{\op})\unit$ by the sandwich map. Hence $\phi$ is a right $A$-module map i.e., $\phi \in C_{A\otimes A^{\op}}(A^{\op}) = A\otimes 1$. This means that $\phi$ is left-multiplication by $a \in A\unit$. Then for all $a \in A\unit, $ let $a' = 1$, then 
+\begin{eqnarray*}
+a\otimes 1(b\otimes 1(v)) &=& \psi(b) \otimes 1(a\otimes 1(v)) \\
+abv &  = & \psi(b)av \\
+ab & = & \psi(b)a \\
+aba\inv & = & \psi(b)
+\end{eqnarray*}
+
+\end{proof}
+
+\begin{theorem}[Double Centralizer Theorem Step 3]\label{3.4}
+Let $A$ be a CSA, $B \subset A$ simple, then 
+$$(\dim_F(C_A(B)))(\dim_F(B)) = \dim_F(A).$$
+\end{theorem}
+\begin{proof}
+We want to look at $C_A(B)$. Since $B$ is simple, $B$ is a CSA$/L$ where $L = Z(B)$. Since $L \ext B \ext A \ext A\otimes A^{\op} = \End_F(A).$ We remark that $A$ is a left $L$-vector space, $B$ acts on $A$ as $L$-linear maps, so $B \subset \End_L(A) \subset \End_F(A)$. We now look at 
+$C_{A\otimes A^{\op}}(B) = C_A(B) \otimes A^{\op}$. Since $L \subset B$, then $C_{A \otimes A^{\op}}(B)$ acts on $A$ via $L$-linear maps. Hence $$C_{A \otimes A^{\op}}(B) = C_{\End_F(A)}(B) = C_{\End_L(A)}(B).$$
+So Theorem \ref{4.1} tells us that 
+$$\End_L(A) = B \otimes_L C_{\End_L(B)} = B \otimes_L (B).$$
+Now we want to compute the dimensions,
+\begin{eqnarray*}
+\dim_L(\End_L(A)) &=& \dim_L(A)^2 = \pwr{\frac{\dim_F(A)}{[L:F]}}^2,\\
+\dim_L(B) &=& \frac{\dim_F(B)}{[L:F]} \\
+\dim_L(C_{\End_L(A)}(B)) &=&  \frac{\dim_FC_{\End_L(B)}}{[L:F]} = \frac{\dim_F C_{\End_F(A)}(B)}{[L:F]} \\ &= &\frac{\dim_{F}C_{A\otimes A^{\op}}(B)}{[L:F]} = \frac{(\dim_FC_A(B))\dim_FA}{[L:F]} = \frac{\dim_FC_A(B) \otimes A^{\op}}{[L:F]}
+\end{eqnarray*}
+Thus 
+$$\pwr{\frac{\dim_F(A)}{[L:F]}}^2 = \frac{\dim_FB}{[L:F]}\pwr{\frac{\dim_FC_A(B)\dim_F(A)}{[L:F]}}.$$
+
+%We have $B \ext A$ and set $L = Z(B)$, so we have $B/L$ is a CSA. Let's say that $\dim B = m$, hence $\dim_F(B) = m^2[L:F].$ Note that $A \otimes_F L$ is a CSA over $L$. Observe that $C_{A\otimes L} (B) = C_{A\otimes L}(B\otimes L) = C_B(A) \otimes L$. Now we can think of $B \otimes_L \overline{L} \ext A \otimes_F \overline{L}$, which gives us an embedding $\Mat_m(\overline{L}) \ext \Mat_n(\overline{L})$ where $\dim_{\overline{L}} A = n$. This implies that $m$ divides $n$. We could also write $\Mat_m(\overline{L}) \ext \Mat_{m\cdot n/m}(\overline{L})$ by block-scalar matrices. By Theorem \ref{3.3}, we only need to compute the centralizer of the latter matrices. Note that $C_{A\otimes_F \overline{L}}(B\otimes_L \overline{L}) \iso \Mat_{n,m}(\overline{L}).$ Now we have that 
+%\begin{eqnarray*}
+%\dim_L C_{A\otimes L}(B) &=& (n/m)^2   \\ 
+%\dim_F C_A(B)[L:F] &=& (n/m)^2[L:F] \\
+%\dim_F C_A(B)m^2[L:F] & = & n^2[L:F] \\
+%\dim_F C_A(B)\dim_F(B) & = & \dim_F A \\
+%\end{eqnarray*}
+
+\end{proof}
+\subsection{Existence of Maximal Subfields}
+\begin{defn}\label{3.6}
+If $A/F$ is a CSA, $F \subset E \subset A$ is a sub-field, we say that $E$ is a \textbf{maximal sub-field} if $[E:F] = \deg A.$
+\end{defn}
+\begin{theorem}\label{3.7}
+If $A$ is a division algebra, then there exists maximal and separable sub-fields. 
+\end{theorem}
+\begin{proof}
+We will show in the case when $F$ is infinite. Given some $a \in A$, look at $F(a)$. We know that $[F(a):F] \leq n = \deg A$, so it is spanned by $\brk{1,a,a^2,\dots , a^{n-1}}.$ We want these to be independent over $F$, so have an $n$ dimension extension as well as the polynomial satisfied by $a$ of $\deg n$ to be separable. This polynomial at $\overline{F}$ is $\chi_n$, the characteristic polynomial. If $\chi_n$ has distinct roots, then it will be minimal, hence the unique polynomial of degree $n$ satisfied by $a_{\overline{F}}.$ The discriminant of the polynomial gives a polynomial in the coefficients which are polynomials in the coordinates of $a$ and is non-vanishing if distinct eigenvalues. 
+\begin{lemma}\label{3.8}
+Suppose $V$ is a finite dimensional vector space over $F$, $F \subset L$, and $F$ is infinite. If $f \in L[x_1,\dots ,x_n]$ non-constant, then there exists $a_1,\dots ,a_n \in F$, then $f(\overrightarrow{a}) \neq 0$
+\end{lemma}
+\begin{proof}
+For $n=1$, any polynomial has only finitely many zeros if it is non-zero. Then we induct and just consider $k(x_1,\dots , x_{n-1})[x_n].$
+\end{proof}
+Hence by Lemma \ref{3.8}, we have our desired polynomial. 
+\end{proof}
+\begin{remark}\label{3.9}
+From Theorem \ref{3.4}, 
+$$(\dim_F E)(\dim_F C_A(E)) = \dim_F A .$$
+If $C_A(E) \supsetneq E,$ then add another element to get a commutative sub-algebra. Indeed, if $\dim_F E \leq \sqrt{\dim_F(A)} = \deg A$ we can always get a bigger field. If $F$ finite, then all extensions are separable, so we are done.
+\end{remark}
+
+
+\subsection{Structure and Examples}
+\begin{defn}\label{3.11}
+A \textbf{quaternion algebra} is a degree 2 CSA. The structure is given by $\Mat_2(F)$ or $D$ a division algebra. 
+\end{defn}
+There exists quadratic separable sub-fields if division algebra (and usually with matrices.) Let $E/F$ be of degree 2, then $E$ acts on itself by left multiplication, and $E \ext \End_F(E) = \Mat_2(F)$. Suppose $A$ is a quadratic extension, where $\car F \neq 2$, then $E = F(\sqrt{a})$, and let $i = \sqrt{a}$. Then we have an automorphism of $E/F$ where $i \mapsto -i$. So Theorem \ref{3.3}, says that there exists $j \in A\unit$ such that $jij\inv = -i$, so $ij=-ji$. This says that $j^2$ commutes with $i \aad j$.
+\begin{lemma}\label{3.12}
+We have that $A = F \oplus Fi \oplus Fi \oplus Fij.$
+\end{lemma}
+\begin{proof}
+As a left $F(i)$ space, 1 does not generated and $\dim_{F(i)}A = 2$ and $j \notin F(i)$ for commutativity reasons. So this implies that $A = F(i) \oplus F(i)j$. Since $j^2$ commutes with $ij$, we have $j^2 \in Z(A) = F$, so $j^2 = b \in F$. Hence $A$ is generated by $i,j \st i^2 = a \in F\unit, j^2 = b \in F\unit \aad ij  = -ji$. We can also deduce our usually anti-commutativity properties that we expect in a quaternion algebra.
+
+Conversely, given any $a,b \in F\unit$, we can define $(a,b/F)$ to be the algebra above; this is a CSA since it is a quaternion algebra. It is enough to show that $(a,b/\overline{F})$ works. If we replace $i \mapsto i/\sqrt{a} = \tilde{i}$ and $j \mapsto j/\sqrt{b} = \tilde{j}$. Now we have $\tilde{i}^2 = 1 = \tilde{j}^2$, hence we want to show that $(1,1/F)$ is a CSA. Note that 
+$(1,1/F)\iso \End_F(F[i])$ via $F[i] \mapsto $ left multiplication and $j \mapsto$ Galois action $i \mapsto -i.$ It is an exercise to show that this map is an injection.
+\end{proof}
+
+\subsection{Symbol Algebras}
+Given $A/F$ a CSA of degree $n$. Suppose that there exists $E \subset A$ a maximal sub-field where $E = F(\sqrt[n]{a})$.\footnote{We call this a cyclic Kummer extension.} Let $\sigma \in \Gal (E/F)$ be a generator via $\sigma (\alpha) = \zeta \alpha$ where $\alpha = \sqrt[n]{a} \aad \zeta$ is a primitive $n\tth$ root of unity. Theorem \ref{3.3}, there exists some $\beta \in A\unit$ such that $\beta \alpha\beta\inv = \omega \alpha$. 
+\begin{lemma}\label{3.14}
+We can write $$A = E \oplus E\beta\oplus E\beta^2 \oplus \cdots \oplus E\beta^{n-1}.$$
+\end{lemma}
+\begin{proof}
+This is true via the linear independence of characters. Consider the action of $\beta$ on $A$ via conjugation, then $E\beta^i = E$ as a vector space over $E$ or over $F$. We have that $\alpha (x\beta^i)\alpha\inv = \zeta^{-i}x\beta^i$, so $E\beta^i$ consists of eigenvectors from conjugacy by $\alpha$ with value $\zeta^{-i}$. This implies that $\beta^n$ is central, hence $\beta^n = b \in F\unit$. So 
+$$A = \bigoplus_{i,j \in \brk{1,\dots , n}}F\alpha^i\beta^j$$
+where $\beta \alpha = \zeta \alpha \beta$ and $\alpha^n = a \aad \beta^n = b$. 
+\end{proof}
+\begin{defn}\label{3.15}
+If we define the \textbf{symbol algebra}, denoted by $(a,b)_{\zeta}$, to be 
+$$\bigoplus_{i,j \in \brk{1,\dots , n}}F\alpha^i\beta^j$$
+where $\beta \alpha = \zeta \alpha \beta$ and $\alpha^n = a \aad \beta^n = b$, then $(a,b)_{\zeta}$ is a CSA$/F$.
+\end{defn}
+What if we don't assume Kummer extension? What about just a Galois extension?
+\subsection{Cyclic Algebras}
+Assume that $E/F$ is cyclic with $\Gal(E/F) = \langle \sigma \rangle$ where $\sigma^n = \id_E$. Suppose that $E\subset A$ is a maximal sub-field, we can choose $\mu \in A$ such that $\mu x= \sigma (x)\mu$ for all $x \in E$ via Theorem \ref{3.3}, then 
+$$A = E \oplus E\mu \oplus E\mu^2 \oplus \cdots \oplus E\mu^{n-1}.$$
+Like before, it will follow that $\mu^n  = b \in F = Z(A)$. 
+\begin{defn}\label{3.17}
+Then we say that $A = \Delta (E,\sigma,b)$ is a \textbf{cyclic algebra.}
+\end{defn} 
+It turns out that over a number field, all CSA's are of this form. There is a result due to Albert, that shows that these all CSA's are not cyclic. If $E/F$ is an arbitrary Galois extension and $E \subset A$ is maximal. For every $g \in G$, there exists $u_g \in A$ such that $u_gx = g(x)u_g$ so that $A  = \bigoplus_{g\in G}Eu_g$.

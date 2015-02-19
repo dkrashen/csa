@@ -1,0 +1,220 @@
+\section{Lecture (1/9)}
+\subsection{Preliminaries}
+We will make a few conventions:
+\begin{enumerate}
+\item Ring will always be associative and unital, but not necessarily commutative;
+\item Ring homomorphisms will be unital (i.e., $f(1) = 1$) and the zero ring is allowed;
+\item Modules will be left or right and for notations sake we will denote a left $R$-module $M$ as $_{R}M$ and a right $S$-module $N$ as $N_S$.
+\end{enumerate}
+
+\begin{defn}\label{1.2}
+Given rings $R,S$ an $R-S$ bi-module $M$ is an Ableian group both with left $R$-module and right $S$-module structure satisfying:
+$$r(ms) = (rm)s \quad \forall \, r \in R, s \in S,\, m \in M.$$
+Note that we will denote an $R-S$ bi-module $P$ by $_{R}P_S$.
+\end{defn}
+
+\subsection{Structure Theory}
+Let $R$ be a ring.
+\begin{defn}\label{1.4}
+A left $R$-module $P$ is \textbf{simple} if it has no proper non-zero sub-modules.
+\end{defn}
+\begin{defn}\label{1.5}
+If $P$ is a left $R$-module and $X \subset P$, then 
+$$\ann_R(x) = \brk{r \in R : rx = 0 \forall \, x \in X}.$$
+\end{defn}
+\begin{remark}\label{1.6}
+$\ann_R(x)$ is always a left ideal and is 2-sided if $X = P$.
+\end{remark}
+\begin{defn}\label{1.7}
+We will denote an \textbf{ideal} $I$ of $R$ by $I \leq R$. A \textbf{left ideal} will be denoted by $I \leq_{\ell} R$ and similarly, $I\leq_r R$ for a \textbf{right ideal}. An ideal $I \leq R$ is said to be \textbf{left primitive} if it is of the form $I = \ann_R(P)$, where $P$ is simple.
+\end{defn}
+\begin{prop}\label{1.8}
+Suppose $P$ is a non-zero right $R$-module, then the following are equivalent:
+\begin{enumerate}
+\item $P$ is simple;
+\item $mR = P$ for all $m \in P \setminus \brk{0}$;
+\item $P = R/I$ for some $I\leq_r R$ maximal.
+\end{enumerate}
+\end{prop}
+\begin{proof}
+$(1) \Rightarrow (2)$. Since $mR$ is a non-zero ideal and $P$ is simple, $mR = P$. $(2)\Rightarrow (3).$ Consider the map $R \surj P$ defined by $r \mapsto mr$. By the first isomorphism theorem, we have that $R/\ker \iso P$. Furthermore, $\ker$ has to be maximal, else $R/\ker$ is not simple. $(3) \Rightarrow (1).$ This is a direct consequence of the Lattice Isomorphism theorem.
+\end{proof}
+
+\begin{defn}\label{1.9}
+A left $R$-module $P$ is \textbf{semi-simple} if $$P \iso \bigoplus_{i=1}^n P_i \quad \text{ where each $P_i$ is simple.}$$
+\end{defn}
+\begin{prop}\label{1.10}
+Let $A$ be an algebra over a field $F$ and $M$ a semi-simple left $A$-module which is finite dimensional as a $F$-vector space. If $P \subset M$ is a sub-module, then 
+\begin{enumerate}
+\item $P$ is semi-simple;
+\item $M/P$ is semi-simple;
+\item there exists $P' \subset M$ such that $M \iso P \oplus P^{\perp}.$
+\end{enumerate}
+\end{prop}
+\begin{remark}\label{1.11}
+If $F$ is a field, then an $F$-algebra is a ring $A$ together with a vector space structure such that for every $\lambda \in F, a,b \in A$, we have $$(\lambda a)b = \lambda (ab) = a(\lambda b), $$
+hence $F \ext Z(A)$.
+\end{remark}
+\begin{proof}
+(1). Let $P\subset N \subset M$ be sub-modules and write $M = N\oplus N' = P\oplus P'$ for some $N'\aad P'.$ We need to find $Q$ such that $N = P\oplus Q$. Let $Q = P'\cap N$. This is a sub-module of $N$ so we need to show that $N = P+Q$ and $P\cap Q = 0$. Let $n \in N$, then $n \in M$ so we can write $n = a + b$ for some uniquely determined $a \in P,b\in P'$. Since $P\subset N$, we have that $b = n -a \in N$, and hence $b \in Q$. Thus, we have $n\in P+Q$ and consequently, $N = P+Q$. To show that other claim, let $n \in P \cap Q$, then $n \in P'$ as well. By choice of $P \aad P'$, if $n \in P \aad n \in P'$, then $n = 0$, and hence $P \cap Q = 0$.
+
+(2). To show that $M/P$ is semi-simple, choose $Q \leq M/P$ that is that maximal semi-simple sub-module. Suppose that $Q \neq M/P$. \comment{Ask Bastian about proof.}
+\end{proof}
+
+\begin{defn}\label{1.12}
+Let $R$ be a ring. Define
+\begin{eqnarray*}
+J_r(R) & = & \bigcap \text{ all maximal right ideals} \\
+J_{\ell}(R) & = & \bigcap \text{ all maximal left ideals }.
+\end{eqnarray*}
+\end{defn}
+
+\begin{remark}\label{1.13}
+Note that annihilators of elements in a simple $R$-module are the same as maximal right ideals in $R$. Hence we have that 
+\begin{eqnarray*}
+J_r(R) & = & \bigcap	\text{ all annihilators of simple $R$-modules} \\
+& = & \bigcap_{\overset{M\in \Mod_R}{M \text{ simple}}} \ann_R(M)
+\end{eqnarray*}
+Thus, we have that $J_r(R) \leq R.$
+\end{remark}
+
+
+\begin{lemma}\label{1.14}
+Suppose that $A$ is a finite dimensional $F$-algebra, then $A_A$ is semi-simple if and only if $J_r(A) = 0$.
+\end{lemma}
+\begin{proof}
+$(\Rightarrow).$ First, we write $A_A = \bigoplus_{j=1}^n P_i$ where $P_i$ are simple. Let $\widehat{P_j} = \bigoplus_{j\neq i}P_j$. We can easily see that $\widehat{P_j}$ is a maximal right ideal. By Definition \ref{1.12}, we have that 
+$$J_r(A) \subset \bigcap_{j=1}^n \widehat{P_j} = 0.$$
+$(\Leftarrow).$ Suppose that $J_r(A) = 0$. Since $A$ is a finite dimensional vector space over $F$, there exists a finite collection of maximal ideals $I_i$ such that $\bigcap I_i = 0$. By Proposition \ref{1.8}, we have that for each $i$, $A/I_i$ is simple, hence $\bigoplus_i A/I_i$ is semi-simple by definition. Since $\bigcap I_i = 0$, we have that the map 
+$$A \lrra \bigoplus_i A/I_i$$ 
+is injective, hence we can consider $A$ as a sub-module of a semi-simple module. We have our desired result by Proposition \ref{1.10}.
+\end{proof}
+
+\begin{defn}\label{1.15}
+An element $r \in R$ is \textbf{left-invertible} if there exists $s \in R$ such that $sr = 1$ and is \textbf{right-invertible} if $rs = 1$.
+\end{defn}
+
+\begin{lemma}\label{1.16}
+Let $A$ be a finite dimensional algebra over $F$. An element $a \in A$ is right invertible if and only if $a$ is left invertible.
+\end{lemma}
+
+\begin{proof}
+Pick $a \in A$. Consider the linear transformation of $F$-vector spaces
+\begin{eqnarray*}
+\phi: A &\lrra & A \\
+b &\longmapsto & ab
+\end{eqnarray*}
+If $a$ is right invertible, then $\phi$ is surjective. Indeed, since if $ax = 1$, then for $y \in A$, $\phi (xy) = axy = y$. If $\phi$ is bijective, then $\det (T) \neq 0$, where $T$ is the matrix associated to $\phi$ for some choice of basis. Let 
+$$\chi_T(t) = t^n + c_{n-1}t^{n-1} + \cdots + c_0$$
+be the characteristic polynomial of $T$, so $c_0 = \pm \det (T).$ By the Cayley-Hamilton theorem, we have that $\chi_T(T) = 0$, which implies that 
+$$\frac{(a^{n-1} + c_{n-1}a^{n-2} + \cdots + c_1)a}{-c_0} = 1.$$
+So we have found a left inverse to $a$ that is also a right inverse due to commutativity.
+\end{proof}
+
+\begin{lemma}\label{1.17}
+Let $R$ be a ring and $r,s,t \in R$ such that $sr = 1 =rt$, then $s = t$.
+\end{lemma}
+%\begin{proof}
+%$s = s\cdot 1 = srt = 1\cdot t = t$.
+%\end{proof}
+\begin{defn}\label{1.18}
+Let $R$ be a ring and $r \in R$. We say that $r$ is \textbf{left quasi-regular} if $1-r$ is left invertible. We will say that $r$ is \textbf{quasi-regular} if $1-r$ is invertible.
+\end{defn}
+
+\begin{lemma}\label{1.19}
+Let $I\leq_r R$ such that all elements of $I$ are right quasi-regular. Then all elements of $I$ are quasi-regular.
+\end{lemma}
+\begin{proof}
+Let $x \in I$. We want to show that $1-x$ has a left inverse. We know that there exists an element $s \in R$ such that $(1-x)s = 1$. Let $y = 1-s$ and $s=  1- y$. Then $(1-x)(1-y) = 1 = 1- x - y + xy,$ which implies that $xy - x -y = 0$, so $y = xy - x$. Since $x \in I$, $y$ must also be in $I$. By assumption, $y$ is right quasi-regular ($1-y$ is right invertible) but $1-y$ is also left invertible with inverse $1-x$. Then $(1-y)(1-x) = 1$, so $(1-x)$ is left invertible, and thus $x$ is quasi-regular.
+\end{proof}
+
+\begin{lemma}\label{1.20}
+Let $x \in J_r(R)$, then $x$ is quasi-regular.
+\end{lemma}
+\begin{proof}
+By Lemma \ref{1.19}, it is enough to show that $x$ is right quasi-regular for all $x \in J_r(R)$. If $x \in J_r(R)$, then $x$ is an element of all maximal ideals of $R$. Hence $1-x$ is not an element of any maximal ideal in $R$, so $(1-x)R = R$. Thus there exists some $s \in R$ such that $(1-x)s = 1$.
+\end{proof}
+
+\begin{lemma}\label{1.21}
+Suppose that $I\leq R$ such that all elements are quasi-regular. Then $I \subset J_r(R)$ and $I \subset J_{\ell}(R).$
+\end{lemma}
+\begin{proof}
+Suppose that $K$ is a maximal right ideal. To show that $K \supset I$, consider $K+I$. If $I\nsubseteq K$, then $K+I = R$, so $K+x = 1$ for $k\in K$ and $x \in I$. This tells us that $K = 1-x$ and since $1-x$ is invertible, we have that $K$ is invertible, but this contradicts our assumption that $K$ is a maximal right ideal; therefore, $I \subset K$.
+\end{proof}
+
+\begin{coro}\label{1.22}
+$J_r(R)$ is equal to the unique maximal ideal with respect to the property that each of its elements is quasi-regular. Moreover, we have that $J_r(R) = J_{\ell}(R)$, so we will denote this ideal by $J(R).$
+\end{coro}
+
+\begin{defn}\label{1.23}
+A ring $R$ is called \textbf{semi-primitive} if $J(R) = 0$.
+\end{defn}
+
+\begin{theorem}[Schur's Lemma]\label{1.24}
+Let $P$ be a simple right $R$-module and $D = \End_R(P_R)$, then $D$ is a division ring.
+\end{theorem}
+
+\begin{remark}\label{1.25}
+$D$ acts on $P$ on the left, and $P$ has a natural $D-R$ bi-modules structure. Indeed, for $f \in \End_R(P_R)$, we have 
+$$f(pr) = f(p)r.$$
+\end{remark}
+
+\begin{proof}
+Suppose that $f \in D\setminus \brk{0}$. We want to show that $f$ is invertible. Consider $\ker (f)$ and $\im (f)$, which are sub-modules of $P$ as right $R$-modules. Since $P\neq 0$, $\ker (f) \neq P$, which implies that $\ker (f) = 0$ since $P$ is simple. Hence $\im (f)\neq 0$, so $\im (f) = P$ by the same logic. Thus $f$ is a bijection. Let $f\inv$ denote the inverse map of $f$. It is easily verified that $f\inv$ is also $R$-linear, hence $f\inv \in D$. Moreover, $D$ is a division ring.
+\end{proof}
+
+\subsection{Endomorphisms of Semi-simple Modules}
+Let $M,N$ be semi-simple $R$-modules, so we can represent them as a direct sum of simple $R$-modules $M_i$, resp. $N_i$. If $f : M\rra N$ is a right $R$-modules homomorphism, then $f_j  = f_{|M_j}$ can be represented as a tuple
+$$(f_{1,j},f_{2,j},\dots , f_{}n,j)$$
+where $f_{i,j}:M_j \lrra N_i$. From this notation, it is clear that we can represent $f$ as a $n\times m$ matrix 
+$$f = \begin{pmatrix}
+f_{1,1} & \cdots & f_{1,m} \\
+\vdots & \vdots & \vdots \\
+f_{n,1} & \cdots & f_{n,m}
+\end{pmatrix}$$
+i.e., 
+$$\Hom_R(M_R,N_R) = \begin{pmatrix}
+\Hom_R(M_1,N_1) & \cdots & \Hom_R(M_1,N_m) \\
+\vdots & \vdots & \vdots \\
+\Hom_R(M_n,N_1) & \cdots & \Hom_R(M_n,N_m)
+\end{pmatrix}$$
+with standard matrix multiplication by composition.
+
+\begin{theorem}[Artin- Wedderburn]\label{1.27}
+Let $A$ be a finite dimensional algebra over a field and $J(A) = 0$. Then we may write $A = \bigoplus_{i=1}^n P_i^{d_i}$ with $P_i$ mutually non-isomorphic and $A \iso (\Mat_{d_i}(D_i))^{\times n}$ where $D_i = \End (P_i)$ a division ring.
+\end{theorem}
+\begin{proof}
+Note that $A \iso \End_A(A_A)$ and $J(A) = 0$ implies that $A_A = P_i^{d_i}$ by Lemma \ref{1.14}. Schur's Lemma (Lemma \ref{1.24}) says that $D_i = \End_A((P_i)_A)$ is a division algebra. We can write
+$$\End_A(A_A) = \begin{pmatrix}
+\Hom_R(P_1^{d_1},P_1^{d_1}) & \cdots & \Hom_R(P_1^{d_1},P_n^{d_n}) \\
+\vdots & \vdots & \vdots \\
+\Hom_R(P_n^{d_n},P_1^{d_1}) & \cdots & \Hom_R(P_n^{d_n},P_n^{d_n})
+\end{pmatrix}$$
+We can decompose this further by noting that 
+$$\Hom_R(P_i^{d_i},P_j^{d_j}) = d_j \left\lbrace \underbrace{\begin{pmatrix}
+\Hom_R(P_i,P_j) & \cdots & \Hom_R(P_i,P_j) \\
+\vdots & \vdots & \vdots \\
+\Hom_R(P_i,P_j) & \cdots & \Hom_R(P_i,P_j)
+\end{pmatrix}}_{d_i}\right.$$
+Since $P_i$ is simple, $\Hom(P_i,P_j) = 0$ unless $i=j$. Note that in this case we have that $\Hom(P_i,P_i) = \End(P_i) = D_i$, so 
+$$
+\End_A(A_A) = \begin{pmatrix}
+M_{d_1}(D_1) & {} & {} & {} \\
+{} & M_{d_2}(D_2) & {} & {} \\
+{} & {} & \ddots & {} \\
+{} & {} & {} & M_{d_n}(D_n)
+\end{pmatrix}$$
+therefore, $\End_A(A_A) = M_{d_1}(D_1) \times \cdots \times M_{d_n}(D_n).$
+\end{proof}
+
+\begin{coro}\label{1.28}
+If $A$ is a finite dimensional, simple $F$ algebra, then $A \iso M_n(D)$ where $D$ is a division algebra over $F$ and $Z(A) = Z(D).$
+\end{coro}
+\begin{proof}
+Since $J(A) \leq A$ and $1\notin J(A)$, we have that $J(A) = 0$ since $A$ simple. By Theorem \ref{1.26}, we have that $A = (M_{d_i}(D_i))^{\times n}$. Since each factor $M_{d_i}(D_i)$ is an ideal and $A$ is simple, we have that $n=1$, and hence we have our desired decomposition.
+
+For the second statement, using matrix representations for $Z(A) \aad Z(D)$, we can construct an isomorphism $Z(D) \lrra Z(A)$ sending $d\longmapsto d\cdot I_n$.
+\end{proof}
+\begin{defn}\label{1.29}
+An $F$-algebra $A$ is called a \textbf{central simple algebra} over $F$ (\textbf{CSA/F}) if $A$ is simple and $Z(A) = F$.
+\end{defn}
