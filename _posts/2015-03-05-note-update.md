@@ -7,7 +7,12 @@ categories: announcements
 
 ---
 
-I've done some small updates to the [notes on the repository](https://github.com/dkrashen/csa-notes/commit/1cb63fc3e2d4f01451e224b2ef363f658df2b702), and [Jackson's notes](http://dkrashen.github.io/csa/LectureNotes.pdf) have been updated to reflect the latest lectures.
+I've done some small updates to the [notes on the
+repository](https://github.com/dkrashen/csa-notes/commit/1cb63fc3e2d4f01451e224b2ef363f658df2b702),
+and [Jackson's notes](http://dkrashen.github.io/csa/LectureNotes.pdf) have
+been updated to reflect the latest lectures. When navigating to the
+LiveTexed notes, you might have to refresh your browser when displaying the
+pdf, as otherwise it might display the cached (old) notes instead.
 
 Next class (tomorrow), our plan will be:
 
