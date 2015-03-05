@@ -1,3 +1,13 @@
+---
+
+layout: post
+title:  "note updates"
+date:   2015-03-05
+categories: announcements 
+
+---
+
+
 ### Instructions to do contribute/modify the repository
 
 (instructions lifted from [https://github.com/maxlieblich/etalecohomology/blob/master/instructions.md](https://github.com/maxlieblich/etalecohomology/blob/master/instructions.md))
