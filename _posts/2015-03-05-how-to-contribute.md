@@ -1,7 +1,7 @@
 ---
 
 layout: post
-title:  "note updates"
+title:  "how to contribute"
 date:   2015-03-05
 categories: announcements 
 
