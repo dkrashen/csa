@@ -25,4 +25,7 @@
 - title: "Lecture 9"
   filename: "lecture9.pdf"
   description: "Existence of involutions and division algebras"
+- title: "Lecture 10"
+  filename: "lecture10.pdf"
+  description: "Cayley-Hamilton and friends"
 
