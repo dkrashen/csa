@@ -2,7 +2,7 @@
 
 layout: post
 title:  "LiveTexed notes updated"
-date:   2015-02-27
+date:   2015-04-08
 categories: announcements 
 
 ---
